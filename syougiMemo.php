@@ -4,11 +4,11 @@ class Prepare
 {
     function pre()
     {
-	    global $ban;
-	    $ban = array(
-	        array(16,15,14,13,12,13,14,15,16)
-	        ,8 =>array(3,4,5,6,7,6,5,4,3)
-	    );
+        global $ban;
+        $ban = array(
+            array(16,15,14,13,12,13,14,15,16)
+	    ,8 =>array(3,4,5,6,7,6,5,4,3)
+	);
         for($x = 1;$x < 8;$x++){
             for($y = 0;$y < 9;$y++){
                 if($x == 6){
@@ -34,61 +34,61 @@ class Prepare
     
 	function Show($ban)
     {
-        echo '‚O‚P‚Q‚R‚S‚T‚U‚V‚W'."\n";
+        echo 'ï¿½Oï¿½Pï¿½Qï¿½Rï¿½Sï¿½Tï¿½Uï¿½Vï¿½W'."\n";
         echo '__________________'. "\n";
         for($x = 0;$x < 9;$x++){
             for($y = 0;$y < 9;$y++){
                 switch($ban[$x][$y]){
                     case 0:
-                        echo ('E');
+                        echo ('ï¿½E');
                         break;
                     case 1:
-                        echo ("•à");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 2:
-                        echo ("‚Ó");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 3:
-                        echo ("");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 4:
-                        echo ("Œj");
+                        echo ("ï¿½j");
                         break;
 		            case 5:
-                        echo ("‹â");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 6:
-                        echo ("‹à");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 7:
-                        echo ("‘å");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 8:
-                        echo ("”ò");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 9:
-                        echo ("Šp");
+                        echo ("ï¿½p");
                         break;
 		            case 10:
-                        echo ("”ò");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 11:
-                        echo ("Šp");
+                        echo ("ï¿½p");
                         break;
 		            case 12:
-                        echo ("µ³");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 13:
-                        echo ("·Ý");
+                        echo ("ï¿½ï¿½");
                         break;
     		        case 14:
-                        echo ("·Þ");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 15:
-                        echo ("¹²");
+                        echo ("ï¿½ï¿½");
                         break;
 		            case 16:
-                        echo ("·®");
+                        echo ("ï¿½ï¿½");
                         break;
                 }
             }
@@ -96,7 +96,7 @@ class Prepare
             echo ($x + 0);
             echo ("\n");
         }
-        echo ('PPPPPPPPP');
+        echo ('ï¿½Pï¿½Pï¿½Pï¿½Pï¿½Pï¿½Pï¿½Pï¿½Pï¿½P');
     }
 }
 	
@@ -104,9 +104,9 @@ class Prepare
     $p = new Prepare();
     $p -> pre();
     $p -> Show($ban);
-    echo 's‚Æ—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+    echo 'ï¿½sï¿½Æ—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B' ."\n";
     fscanf(STDIN, '%d %d', $a, $b);
-    echo 's‚Æ—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+    echo 'ï¿½sï¿½Æ—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B' ."\n";
     fscanf(STDIN, '%d %d', $c, $d);
      
     $ban[$c][$d] = $ban[$a][$b];
