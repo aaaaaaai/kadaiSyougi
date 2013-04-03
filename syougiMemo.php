@@ -96,20 +96,30 @@ class Prepare
             echo ($x + 0);
             echo ("\n");
         }
-        echo ('PPPPPPPPP');
+        echo ('PPPPPPPPP' . "\n");
+    }
+}
+	
+class Move
+{
+    function move(){
+        global $ban;
+    
+        echo 's‚Æ—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+        fscanf(STDIN, '%d %d', $a, $b);
+        echo 's‚Æ—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+        fscanf(STDIN, '%d %d', $c, $d);
+     
+        $ban[$c][$d] = $ban[$a][$b];
+        $ban[$a][$b] = 0;
     }
 }
 	
     $ban;
     $p = new Prepare();
-    $p -> pre();
     $p -> Show($ban);
-    echo 's‚Æ—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
-    fscanf(STDIN, '%d %d', $a, $b);
-    echo 's‚Æ—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
-    fscanf(STDIN, '%d %d', $c, $d);
-     
-    $ban[$c][$d] = $ban[$a][$b];
-    $ban[$a][$b] = 0;
+    
+    $m = new Move();
+    
     $p -> Show($ban);
   ?>
