@@ -102,16 +102,41 @@ class Prepare
 	
 class Move
 {
-    function move(){
+    function move()
+    {
         global $ban;
+        $l = new Limit();
     
         echo '行と列を入力してください。' ."\n";
         fscanf(STDIN, '%d %d', $a, $b);
         echo '行と列を入力してください。' ."\n";
         fscanf(STDIN, '%d %d', $c, $d);
-     
-        $ban[$c][$d] = $ban[$a][$b];
-        $ban[$a][$b] = 0;
+        
+        $koma = $ban[$a][$b];
+        
+        $l -> limit1($koma, $a, $b, $c, $d);
+    }
+}
+
+class Limit
+{
+    
+    function limit1($koma, $a, $b, $c, $d)
+    {
+        global $ban, $m, $check;
+        
+        switch($koma){
+            case 1:
+                if($c == $a - 1 && $d == $b){
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $check = true;
+                }else{
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                }
+                break;
+        }
     }
 }
 	
@@ -119,7 +144,9 @@ class Move
     $p = new Prepare();
     $p -> Show($ban);
     
-    $m = new Move();
-    
+    do{
+        $m = new Move();
+    }while($check == false);
+        
     $p -> Show($ban);
-  ?>
+?>
