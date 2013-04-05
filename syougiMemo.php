@@ -141,12 +141,13 @@ class Limit
 }
 	
     $ban;
+    
     $p = new Prepare();
     $p -> Show($ban);
     
     do{
         $m = new Move();
     }while($check == false);
-        
+    
     $p -> Show($ban);
 ?>
