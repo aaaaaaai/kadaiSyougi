@@ -7,19 +7,17 @@ class Prepare
 	    global $ban;
 	    $ban = array(
 	        array(16,15,14,13,12,13,14,15,16)
-	        ,8 =>array(3,4,5,6,7,6,5,4,3));
+	        ,8 =>array(2,3,4,5,6,5,4,3,2));
 
         for($x = 1;$x < 8;$x++){
             for($y = 0;$y < 9;$y++){
                 if($x == 6){
                     $ban[$x][$y] = 1;
-                }elseif($x == 2){
-                    $ban[$x][$y] = 2;
-                }elseif($x == 2){
-                    $ban[$x][$y] = 2;
                 }elseif($x == 1 && $y == 7){
-                    $ban[$x][$y] = 8;
+                    $ban[$x][$y] = 7;
                 }elseif($x == 7 && $y == 7){
+                    $ban[$x][$y] = 8;
+                }elseif($x == 2)	   {
                     $ban[$x][$y] = 9;
                 }elseif($x == 7 && $y == 1){
                     $ban[$x][$y] = 10;
@@ -46,31 +44,31 @@ class Prepare
                         echo ("曕");
                         break;
 		            case 2:
-                        echo ("僼");
-                        break;
-		            case 3:
                         echo ("崄");
                         break;
-		            case 4:
+		            case 3:
                         echo ("宩");
                         break;
-		            case 5:
+		            case 4:
                         echo ("嬧");
                         break;
-		            case 6:
+		            case 5:
                         echo ("嬥");
                         break;
-		            case 7:
+		            case 6:
                         echo ("戝");
                         break;
-		            case 8:
-                        echo ("思");
+		            case 7:
+                        echo ("旘");
                         break;
-		            case 9:
+		            case 8:
                         echo ("妏");
                         break;
+		            case 9:
+                        echo ("僼");
+                        break;
 		            case 10:
-                        echo ("旘");
+                        echo ("思");
                         break;
 		            case 11:
                         echo ("陡");
@@ -136,17 +134,8 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 2:					//傆
-                if($c == $a + 1 && $d == $b){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
-                }else{
-                    echo '堏摦偱偒傑偣傫丅' . "\n";
-                    $check = false;
-                }
-                break;
-		case 3:					//崄
+		
+		case 2:					//崄
                 if($c == $a && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -156,7 +145,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 4:					//宩
+		case 3:					//宩
                 if($c == $a -2 && $d == $b +1){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -170,7 +159,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 5:					//嬧
+		case 4:					//嬧
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -196,7 +185,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 6:					//嬥
+		case 5:					//嬥
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -226,7 +215,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 7:					//戝
+		case 6:					//戝
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -264,7 +253,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 8:					//思
+		case 7:					//旘
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -274,7 +263,8 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 9:					//妏
+		
+		case 8:					//妏
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -284,7 +274,18 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 10:					//旘
+		
+		case 9:					//傆
+                if($c == $a + 1 && $d == $b){
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $check = true;
+                }else{
+                    echo '堏摦偱偒傑偣傫丅' . "\n";
+                    $check = false;
+                }
+                break;
+		case 10:					//思
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
