@@ -47,6 +47,7 @@ class Prepare
     
 	function Show($ban)
     {
+        echo 'player2' . "\n";
         echo '‚O‚P‚Q‚R‚S‚T‚U‚V‚W'."\n";
         echo '__________________'. "\n";
         for($x = 0;$x < 9;$x++){
@@ -110,12 +111,13 @@ class Prepare
             echo ("\n");
         }
         echo ('PPPPPPPPP' . "\n");
+        echo 'player1' . "\n";
     }
 }
 	
 class Move
 {
-    function move()
+    function move_koma()
     {
         global $ban;
         $l = new Limit();
@@ -131,6 +133,31 @@ class Move
             $l -> limit1($koma, $a, $b, $c, $d);
         }else{
             $l -> limit2($koma, $a, $b, $c, $d);
+        }
+    }
+}
+
+class Put
+{
+    function put_koma()
+    {
+        global $okiba1, $okiba2, $ban, $ban_ura, $teban;
+        
+        echo 's‚Æ—ñ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+        fscanf(STDIN, '%d %d', $c, $d);
+        
+        if($teban){
+            echo '—ñ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+            fscanf(STDIN, '%d', $a);
+            $ban[$c][$d] = $okiba1[$a];
+            $okiba1[$a] = 0;
+            $ban_ura[$c][$d] = player1;
+        }else{
+            echo '—ñ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
+            fscanf(STDIN, '%d', $a);
+            $ban[$c][$d] = $okiba2[$a];
+            $okiba2[$a] = 0;
+            $ban_ura[$c][$d] = player2;
         }
     }
 }
@@ -1186,18 +1213,62 @@ class Limit
     }
     
 }
+
+class Judge
+{
+    function hantei($ban)
+    {
+        global $teban;
+        $ou_count = 0;
+        
+        for($x = 0; $x < 9; $x++){
+            for($y = 0; $y < 9; $y++){
+                if($ban[$x][$y] == 6 || $ban[$x][$y] == 12){
+                    $ou_count++;
+                }
+            }
+        }
+        
+        if($ou_count == 2){
+            return true;
+        }else{
+            if($teban){
+                echo 'player1‚ÌŸ—˜' . "\n";
+            }else{
+                echo 'player2‚ÌŸ—˜' . "\n";
+            }
+            return false;
+        }
+    }
+}
 	
     $ban;
     $ban_ura;
+    $okiba1 = 1;
+    $okiba2;
+    $teban = true;
     
-    $p = new Prepare();
-    $p -> Show($ban);
+    $pr = new Prepare();
+    $pr -> Show($ban);
+    $m = new Move();
+    $j = new Judge();
+    $pu = new Put();
     
     while(1){
         do{
-            $m = new Move();
+            echo '1“®‚©‚·@2’u‚­' . "\n";
+            fscanf(STDIN, '%d', $a);
+            if($a == 1){
+                $m -> move_koma();
+            }else{
+//                $pu -> put_koma();
+            }
         }while($check == false);
-    
-        $p -> Show($ban);
+        $pr -> Show($ban);
+        if($j -> hantei($ban)){
+            $teban = !($teban);
+        }else{
+            break;
+        }
     }
 ?>
