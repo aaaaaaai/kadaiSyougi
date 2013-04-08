@@ -1,30 +1,45 @@
 <?php
 
+const player1 = 1;
+const player2 = 2;
+
 class Prepare
 {
     function Prepare()
     {
-	    global $ban;
+	    global $ban, $ban_ura;
 	    $ban = array(
 	        array(16,15,14,13,12,13,14,15,16)
-	        ,8 =>array(2,3,4,5,6,5,4,3,2));
+	        ,8 =>array(2,3,4,5,6,5,4,3,2)
+	    );
+	    $ban_ura = array(
+	        array(2,2,2,2,2,2,2,2,2)
+	        ,8 => array(1,1,1,1,1,1,1,1,1)
+	    );
 
         for($x = 1;$x < 8;$x++){
             for($y = 0;$y < 9;$y++){
                 if($x == 6){
                     $ban[$x][$y] = 1;
-                }elseif($x == 1 && $y == 7){
+                    $ban_ura[$x][$y] = 1;
+                }elseif($x == 7 && $y == 1){
                     $ban[$x][$y] = 7;
+                    $ban_ura[$x][$y] = 1;
                 }elseif($x == 7 && $y == 7){
                     $ban[$x][$y] = 8;
+                    $ban_ura[$x][$y] = 1;
                 }elseif($x == 2)	   {
                     $ban[$x][$y] = 9;
-                }elseif($x == 7 && $y == 1){
+                    $ban_ura[$x][$y] = 2;
+                }elseif($x == 1 && $y == 7){
                     $ban[$x][$y] = 10;
+                    $ban_ura[$x][$y] = 2;
                 }elseif($x == 1 && $y == 1){
                     $ban[$x][$y] = 11;
+                    $ban_ura[$x][$y] = 2;
                 }else{
 		            $ban[$x][$y] = 0;
+		            $ban_ura[$x][$y] = 0;
                 }
             }
         }
@@ -56,7 +71,7 @@ class Prepare
                         echo ("金");
                         break;
 		            case 6:
-                        echo ("大");
+                        echo ("王");
                         break;
 		            case 7:
                         echo ("飛");
@@ -112,7 +127,7 @@ class Move
         
         $koma = $ban[$a][$b];
         
-        if($koma != 2){
+        if($koma != 2 && $koma != 7 && $koma != 8 && $koma != 10 && $koma != 11 && $koma != 16){
             $l -> limit1($koma, $a, $b, $c, $d);
         }else{
             $l -> limit2($koma, $a, $b, $c, $d);
@@ -122,153 +137,152 @@ class Move
 
 class Limit
 {
-    
     function limit1($koma, $a, $b, $c, $d)
     {
-        global $ban, $m, $check;
+        global $ban, $ban_ura, $m, $check;
         
         switch($koma){
             case 1:					//歩
                 if($c == $a - 1 && $d == $b){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
+                    if($ban_ura[$c][$d] != player1){
+                        $ban[$c][$d] = $ban[$a][$b];
+                        $ban[$a][$b] = 0;
+                        $ban_ura[$c][$d] = player1;
+                        $ban_ura[$a][$b] = 0;
+                        $check = true;
+                    }else{
+                        echo '移動できません。' . "\n";
+                        $check = false;
+                    }
                 }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 3:					//桂
+		    case 3:					//桂
                 if($c == $a -2 && $d == $b +1){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
+                    if($ban[$c][$d] != player1){
+                        $ban[$c][$d] = $ban[$a][$b];
+                        $ban[$a][$b] = 0;
+                        $ban_ura[$c][$d] = player1;
+                        $ban_ura[$a][$b] = 0;
+                        $check = true;
+                    }else{
+                        echo '移動できません。' . "\n";
+                        $check = false;
+                    }
                 }elseif($c == $a -2 && $d == $b -1){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
+                    if($ban[$c][$d] != player1){
+                        $ban[$c][$d] = $ban[$a][$b];
+                        $ban[$a][$b] = 0;
+                        $ban_ura[$c][$d] = player1;
+                        $ban_ura[$a][$b] = 0;
+                        $check = true;
+                    }else{
+                        echo '移動できません。' . "\n";
+                        $check = false;
+                    }
                 }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 4:					//銀
+		    case 4:					//銀
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a -1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-  		}elseif($c == $a -1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+  		        }elseif($c == $a -1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}else{
+		        }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 5:					//金
+		    case 5:					//金
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a  && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-  		}elseif($c == $a  && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+  		        }elseif($c == $a  && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b ){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b ){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}else{
+		        }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 6:					//大
+		    case 6:					//大
                 if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a  && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-  		}elseif($c == $a  && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+  		        }elseif($c == $a  && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b ){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b ){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}else{
-                    echo '移動できません。' . "\n";
-                    $check = false;
-                }
-                break;
-		case 7:					//飛
-                if($c == $a - 1 && $d == $b){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
-                }else{
+		        }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
 		
-		case 8:					//角
-                if($c == $a - 1 && $d == $b){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
-                }else{
-                    echo '移動できません。' . "\n";
-                    $check = false;
-                }
-                break;
-		
-		case 9:					//ふ
+		    case 9:					//ふ
                 if($c == $a + 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
@@ -278,136 +292,107 @@ class Limit
                     $check = false;
                 }
                 break;
-		case 10:					//ﾋｼ
-                if($c == $a - 1 && $d == $b){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
-                }else{
-                    echo '移動できません。' . "\n";
-                    $check = false;
-                }
-                break;
-		case 11:					//ｶｸ
-                if($c == $a - 1 && $d == $b){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
-                }else{
-                    echo '移動できません。' . "\n";
-                    $check = false;
-                }
-                break;
-		case 12:					//ｵｳ
+
+		    case 12:					//ｵｳ
                 if($c == $a + 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a +1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-  		}elseif($c == $a +1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+  		        }elseif($c == $a +1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a  && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a  && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a  && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a  && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b ){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b ){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}else{
+		        }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 13:					//ｷﾝ
+		    case 13:					//ｷﾝ
                 if($c == $a + 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a  && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-  		}elseif($c == $a  && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+  		        }elseif($c == $a  && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a +1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a +1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b ){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b ){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}else{
+		        }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 14:					//ｷﾞﾝ
+		    case 14:					//ｷﾞﾝ
                 if($c == $a + 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a +1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-  		}elseif($c == $a +1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+  		        }elseif($c == $a +1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b +1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b +1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}elseif($c == $a -1 && $d == $b -1){
-		    $ban[$c][$d] = $ban[$a][$b];
+		        }elseif($c == $a -1 && $d == $b -1){
+		            $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
-		}else{
+		        }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
-		case 15:					//ｹｲ
+		    case 15:					//ｹｲ
                 if($c == $a +2 && $d == $b +1){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
                 }elseif($c == $a +2 && $d == $b -1){
-                    $ban[$c][$d] = $ban[$a][$b];
-                    $ban[$a][$b] = 0;
-                    $check = true;
-                }else{
-                    echo '移動できません。' . "\n";
-                    $check = false;
-                }
-                break;
-		case 16:					//ｷｮ
-                if($c == $a - 1 && $d == $b){
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
                     $check = true;
@@ -422,24 +407,24 @@ class Limit
     
     function limit2($koma, $a, $b, $c, $d)
     {
-        global $ban, $m, $check;
+        global $ban, $ban_ura, $m, $check;
         $count = 0;
-        $x = $a;
         
         switch($koma){
             case 2:
+                $x = $a - 1;
                 if($c < $a && $d == $b){
                     while($x >= $c){
-                        if($ban[$x][$d] == 0)
+                        if($ban[$x][$d] != 0)
                             $count++;
                         $x--;
                     }
-                    if($count != $a - $c){
-                        if($ban[$c][$d] < 7){
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
                             echo '移動できません。' . "\n";
                             $check = false;
                             break;
-                        }elseif($count != $a - $c - 1){
+                        }elseif($count > 1){
                             echo '移動できません。' . "\n";
                             $check = false;
                             break;
@@ -447,25 +432,29 @@ class Limit
                     }
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
                     $check = true;
                 }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
                 break;
- /*           case 16:
-                if($c > $a && $d == $b){
-                    while($x =< $c){
-                        if($ban[$x][$d] == 0)
+            
+            case 7:
+                if($c < $a && $d == $b){    //上
+                    $x = $a - 1;
+                    while($x >= $c){
+                        if($ban[$x][$d] != 0)
                             $count++;
-                        $x++;
+                        $x--;
                     }
-                    if($count != $c - $a){
-                        if($ban[$c][$d] != 2 && $ban[$c][$d] < 10){
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
                             echo '移動できません。' . "\n";
                             $check = false;
                             break;
-                        }elseif($count != $a - $c - 1){
+                        }elseif($count > 1){
                             echo '移動できません。' . "\n";
                             $check = false;
                             break;
@@ -473,25 +462,455 @@ class Limit
                     }
                     $ban[$c][$d] = $ban[$a][$b];
                     $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c > $a && $d == $b){    //下
+                    $x = $a + 1;
+                    while($x <= $c){
+                        if($ban[$x][$d] != 0)
+                            $count++;
+                        $x++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c == $a && $d > $b){    //右
+                    $x = $b + 1;
+                    while($x <= $d){
+                        if($ban[$c][$x] != 0)
+                            $count++;
+                        $x++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c == $a && $d < $b){    //左
+                    $x = $b - 1;
+                    while($x >= $d){
+                        if($ban[$c][$x] != 0)
+                            $count++;
+                        $x--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
                     $check = true;
                 }else{
                     echo '移動できません。' . "\n";
                     $check = false;
                 }
-                break;*/
+                break;
+             
+            case 8:
+                if((($c - $a) != ($d - $b)) && (($a - $c) != ($d - $b))){
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                    break;
+                }
+            
+                if($c < $a && $d > $b){    //右上
+                    $x = $a - 1;
+                    $y = $b + 1;
+                    while($x >= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x--;
+                        $y++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c > $a && $d > $b){    //右下
+                    $x = $a + 1;
+                    $y = $b + 1;
+                    while($x <= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x++;
+                        $y++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c < $a && $d < $b){    //左上
+                    $x = $a - 1;
+                    $y = $b - 1;
+                    while($x >= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x--;
+                        $y--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c > $a && $d < $b){    //左下
+                    $x = $a + 1;
+                    $y = $b - 1;
+                    while($x <= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x++;
+                        $y--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player1;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }else{
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                }
+                break;
+            
+            case 10:
+                if($c < $a && $d == $b){    //上
+                    $x = $a - 1;
+                    while($x >= $c){
+                        if($ban[$x][$d] != 0)
+                            $count++;
+                        $x--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c > $a && $d == $b){    //下
+                    $x = $a + 1;
+                    while($x <= $c){
+                        if($ban[$x][$d] != 0)
+                            $count++;
+                        $x++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c == $a && $d > $b){    //右
+                    $x = $b + 1;
+                    while($x <= $d){
+                        if($ban[$c][$x] != 0)
+                            $count++;
+                        $x++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c == $a && $d < $b){    //左
+                    $x = $b - 1;
+                    while($x >= $d){
+                        if($ban[$c][$x] != 0)
+                            $count++;
+                        $x--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }else{
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                }
+                break;
+                
+            case 11:
+            
+                if((($c - $a) != ($d - $b)) && (($a - $c) != ($d - $b))){
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                    break;
+                }
+            
+                if($c < $a && $d > $b){    //右上
+                    $x = $a - 1;
+                    $y = $b + 1;
+                    while($x >= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x--;
+                        $y++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c > $a && $d > $b){    //右下
+                    $x = $a + 1;
+                    $y = $b + 1;
+                    while($x <= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x++;
+                        $y++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c < $a && $d < $b){    //左上
+                    $x = $a - 1;
+                    $y = $b - 1;
+                    while($x >= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x--;
+                        $y--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }elseif($c > $a && $d < $b){    //左下
+                    $x = $a + 1;
+                    $y = $b - 1;
+                    while($x <= $c){
+                        if($ban[$x][$y] != 0)
+                            $count++;
+                        $x++;
+                        $y--;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }else{
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                }
+                break;
+            
+            case 16:
+                $x = $a + 1;
+                if($c > $a && $d == $b){
+                    while($x <= $c){
+                        if($ban[$x][$d] != 0)
+                            $count++;
+                        $x++;
+                    }
+                    if($count != 0){
+                        if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }elseif($count > 1){
+                            echo '移動できません。' . "\n";
+                            $check = false;
+                            break;
+                        }
+                    }
+                    $ban[$c][$d] = $ban[$a][$b];
+                    $ban[$a][$b] = 0;
+                    $ban_ura[$c][$d] = player2;
+                    $ban_ura[$a][$b] = 0;
+                    $check = true;
+                }else{
+                    echo '移動できません。' . "\n";
+                    $check = false;
+                }
+                break;
         }
     }
     
 }
 	
     $ban;
+    $ban_ura;
     
     $p = new Prepare();
     $p -> Show($ban);
     
-    do{
-        $m = new Move();
-    }while($check == false);
+    while(1){
+        do{
+            $m = new Move();
+        }while($check == false);
     
-    $p -> Show($ban);
+        $p -> Show($ban);
+    }
 ?>
