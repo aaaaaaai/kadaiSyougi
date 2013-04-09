@@ -9,7 +9,7 @@ class Prepare
     {
 	    global $ban, $ban_ura;
 	    $ban = array(
-	        array(16,15,14,13,12,13,14,15,16)
+	        array(10,11,12,13,14,13,12,11,10)
 	        ,8 =>array(2,3,4,5,6,5,4,3,2)
 	    );
 	    $ban_ura = array(
@@ -32,10 +32,10 @@ class Prepare
                     $ban[$x][$y] = 9;
                     $ban_ura[$x][$y] = 2;
                 }elseif($x == 1 && $y == 7){
-                    $ban[$x][$y] = 10;
+                    $ban[$x][$y] = 15;
                     $ban_ura[$x][$y] = 2;
                 }elseif($x == 1 && $y == 1){
-                    $ban[$x][$y] = 11;
+                    $ban[$x][$y] = 16;
                     $ban_ura[$x][$y] = 2;
                 }else{
 		            $ban[$x][$y] = 0;
@@ -107,25 +107,25 @@ class Koma
                 echo ("ƒt");
                 break;
 		    case 10:
-                echo ("Ë¼");
+                echo ("·®");
                 break;
 		    case 11:
-                echo ("¶¸");
+                echo ("¹²");
                 break;
 		    case 12:
-                echo ("µ³");
+                echo ("·Þ");
                 break;
 		    case 13:
                 echo ("·Ý");
                 break;
     		case 14:
-                echo ("·Þ");
+                echo ("µ³");
                 break;
 		    case 15:
-                echo ("¹²");
+                echo ("Ë¼");
                 break;
 		    case 16:
-                echo ("·®");
+                echo ("¶¸");
                 break;
         }
     }
@@ -145,7 +145,7 @@ class Move
         
         $koma = $ban[$a][$b];
         
-        if($koma != 2 && $koma != 7 && $koma != 8 && $koma != 10 && $koma != 11 && $koma != 16){
+        if($koma != 2 && $koma != 7 && $koma != 8 && $koma != 10 && $koma != 15 && $koma != 16){
             $l -> limit1($koma, $a, $b, $c, $d);
         }else{
             $l -> limit2($koma, $a, $b, $c, $d);
@@ -487,7 +487,7 @@ class Limit
                 }
                 break;
 
-		    case 12:					//µ³
+		    case 14:					//µ³
                 if($c == $a + 1 && $d == $b){
                     if($ban[$c][$d] != player2){
                         $ban[$c][$d] = $ban[$a][$b];
@@ -653,7 +653,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		    case 14:					//·ÞÝ
+		    case 12:					//·ÞÝ
                 if($c == $a + 1 && $d == $b){
                     if($ban[$c][$d] != player2){
                         $ban[$c][$d] = $ban[$a][$b];
@@ -714,7 +714,7 @@ class Limit
                     $check = false;
                 }
                 break;
-		    case 15:					//¹²
+		    case 11:					//¹²
                 if($c == $a +2 && $d == $b +1){
                     if($ban[$c][$d] != player2){
                         $ban[$c][$d] = $ban[$a][$b];
@@ -994,7 +994,7 @@ class Limit
                 }
                 break;
             
-            case 10:
+            case 15:
                 if($c < $a && $d == $b){    //ã
                     $x = $a - 1;
                     while($x >= $c){
@@ -1093,7 +1093,7 @@ class Limit
                 }
                 break;
                 
-            case 11:
+            case 16:
             
                 if((($c - $a) != ($d - $b)) && (($a - $c) != ($d - $b))){
                     echo 'ˆÚ“®‚Å‚«‚Ü‚¹‚ñB' . "\n";
@@ -1207,7 +1207,7 @@ class Limit
                 }
                 break;
             
-            case 16:
+            case 10:
                 $x = $a + 1;
                 if($c > $a && $d == $b){
                     while($x <= $c){
@@ -1250,7 +1250,7 @@ class Judge
         
         for($x = 0; $x < 9; $x++){
             for($y = 0; $y < 9; $y++){
-                if($ban[$x][$y] == 6 || $ban[$x][$y] == 12){
+                if($ban[$x][$y] == 6 || $ban[$x][$y] == 14){
                     $ou_count++;
                 }
             }
