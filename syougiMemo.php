@@ -47,71 +47,87 @@ class Prepare
     
 	function Show($ban)
     {
-        echo 'player2' . "\n";
+        global $okiba1, $okiba2;
+        $k = new Koma();
+        echo 'player2丂';
+        for($i = 0; $i < count($okiba2); $i++)
+            echo $k -> show_koma($okiba2[$i]);
+        echo "\n";
         echo '侽侾俀俁係俆俇俈俉'."\n";
         echo '__________________'. "\n";
         for($x = 0;$x < 9;$x++){
             for($y = 0;$y < 9;$y++){
-                switch($ban[$x][$y]){
-                    case 0:
-                        echo ('丒');
-                        break;
-                    case 1:
-                        echo ("曕");
-                        break;
-		            case 2:
-                        echo ("崄");
-                        break;
-		            case 3:
-                        echo ("宩");
-                        break;
-		            case 4:
-                        echo ("嬧");
-                        break;
-		            case 5:
-                        echo ("嬥");
-                        break;
-		            case 6:
-                        echo ("墹");
-                        break;
-		            case 7:
-                        echo ("旘");
-                        break;
-		            case 8:
-                        echo ("妏");
-                        break;
-		            case 9:
-                        echo ("僼");
-                        break;
-		            case 10:
-                        echo ("思");
-                        break;
-		            case 11:
-                        echo ("陡");
-                        break;
-		            case 12:
-                        echo ("党");
-                        break;
-		            case 13:
-                        echo ("份");
-                        break;
-    		        case 14:
-                        echo ("忿");
-                        break;
-		            case 15:
-                        echo ("共");
-                        break;
-		            case 16:
-                        echo ("樊");
-                        break;
-                }
+                $k -> show_koma($ban[$x][$y]);
             }
             echo ('|');
             echo ($x + 0);
             echo ("\n");
         }
         echo ('丳丳丳丳丳丳丳丳丳' . "\n");
-        echo 'player1' . "\n";
+        echo 'player1丂';
+        for($j = 0; $j < count($okiba1); $j++)
+            echo $k -> show_koma($okiba1[$j]);
+        echo "\n";
+    }
+}
+
+class Koma
+{
+    function show_koma($koma)
+    {
+        switch($koma){
+            case 0:
+                echo ('丒');
+                break;
+            case 1:
+                echo ("曕");
+                break;
+		    case 2:
+                echo ("崄");
+                break;
+		    case 3:
+                echo ("宩");
+                break;
+		    case 4:
+                echo ("嬧");
+                break;
+		    case 5:
+                echo ("嬥");
+                break;
+		    case 6:
+                echo ("墹");
+                break;
+		    case 7:
+                echo ("旘");
+                break;
+		    case 8:
+                echo ("妏");
+                break;
+		    case 9:
+                echo ("僼");
+                break;
+		    case 10:
+                echo ("思");
+                break;
+		    case 11:
+                echo ("陡");
+                break;
+		    case 12:
+                echo ("党");
+                break;
+		    case 13:
+                echo ("份");
+                break;
+    		case 14:
+                echo ("忿");
+                break;
+		    case 15:
+                echo ("共");
+                break;
+		    case 16:
+                echo ("樊");
+                break;
+        }
     }
 }
 	
@@ -141,7 +157,7 @@ class Put
 {
     function put_koma()
     {
-        global $okiba1, $okiba2, $ban, $ban_ura, $teban;
+        global $okiba1, $okiba2, $ban, $ban_ura, $teban, $check;
         
         echo '峴偲楍傪擖椡偟偰偔偩偝偄丅' ."\n";
         fscanf(STDIN, '%d %d', $c, $d);
@@ -152,12 +168,14 @@ class Put
             $ban[$c][$d] = $okiba1[$a];
             $okiba1[$a] = 0;
             $ban_ura[$c][$d] = player1;
+            $check = true;
         }else{
             echo '楍傪擖椡偟偰偔偩偝偄丅' ."\n";
             fscanf(STDIN, '%d', $a);
             $ban[$c][$d] = $okiba2[$a];
             $okiba2[$a] = 0;
             $ban_ura[$c][$d] = player2;
+            $check = true;
         }
     }
 }
@@ -166,12 +184,21 @@ class Limit
 {
     function limit1($koma, $a, $b, $c, $d)
     {
-        global $ban, $ban_ura, $m, $check;
+        global $ban, $ban_ura, $m, $check, $okiba1, $okiba2;
+        for($i = 0; $i < 10; $i++){
+            if($okiba1[$i] == 0)
+                break;
+        }
+        for($j = 0; $j < 10; $i++){
+            if($okiba2[$j] == 0)
+                break;
+        }
         
         switch($koma){
             case 1:					//曕
                 if($c == $a - 1 && $d == $b){
                     if($ban_ura[$c][$d] != player1){
+                        $okiba1[$i] = $ban[$c][$d];
                         $ban[$c][$d] = $ban[$a][$b];
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player1;
@@ -1244,8 +1271,8 @@ class Judge
 	
     $ban;
     $ban_ura;
-    $okiba1 = 1;
-    $okiba2;
+    $okiba1 = array(0,0,0,0,0,0,0,0,0,0);
+    $okiba2 = array(0,0,0,0,0,0,0,0,0,0);
     $teban = true;
     
     $pr = new Prepare();
@@ -1256,12 +1283,17 @@ class Judge
     
     while(1){
         do{
+            if($teban){
+                echo 'player1丂';
+            }else{
+                echo 'player2丂';
+            }
             echo '1摦偐偡丂2抲偔' . "\n";
             fscanf(STDIN, '%d', $a);
             if($a == 1){
                 $m -> move_koma();
             }else{
-//                $pu -> put_koma();
+                $pu -> put_koma();
             }
         }while($check == false);
         $pr -> Show($ban);
