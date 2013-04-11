@@ -1502,9 +1502,9 @@ try{
         if($j -> hantei($ban)){
             $teban = !($teban);
         }else{
-            break;
+            break; 
         }
-    } 
+    }
 }catch(Exception $e){
     echo 'ƒGƒ‰[';
 }
