@@ -135,12 +135,11 @@ class Move
 {
     function move_koma()
     {
-        global $ban;
+        global $ban, $l;
         $a = 0;
         $b = 0;
         $c = 0;
         $d = 0;
-        $l = new Limit();
     
         try{
         echo 's‚Æ—ñ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B' ."\n";
@@ -224,11 +223,10 @@ class Limit
             if($okiba1[$i] == 0)
                 break;
         }
-        for($j = 0; $j < 10; $i++){
+        for($j = 0; $j < 10; $j++){
             if($okiba2[$j] == 0)
                 break;
         }
-        
         switch($koma){
             case 1:					//•à
                 if($c == $a - 1 && $d == $b){
@@ -888,7 +886,7 @@ class Limit
             if($okiba1[$i] == 0)
                 break;
         }
-        for($j = 0; $j < 10; $i++){
+        for($j = 0; $j < 10; $j++){
             if($okiba2[$j] == 0)
                 break;
         }
@@ -1456,6 +1454,7 @@ try{
     
     $pr = new Prepare();
     $pr -> Show($ban);
+    $l = new Limit();
     $m = new Move();
     $j = new Judge();
     $pu = new Put();
