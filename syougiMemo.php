@@ -1546,6 +1546,6 @@ try{
         }
     }
 }catch(Exception $e){
-    echo 'エラー';
+    echo 'エラー'; 
 }
 ?>
