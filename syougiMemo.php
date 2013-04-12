@@ -273,7 +273,11 @@ class Limit
                     if($ban_ura[$c][$d] != player1){
                         if($ban_ura[$c][$d] == player2)
                             $okiba1[$i] = $ban[$c][$d] - 8;
+                             if($c <= 2){
+                        $ban[$c][$d] = 5;
+                        }else{
                         $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
@@ -309,7 +313,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player1){
                         if($ban_ura[$c][$d] == player2)
                             $okiba1[$i] = $ban[$c][$d] - 8;
+                             if($c <= 2){
+                        $ban[$c][$d] = 5;
+                        }else{
                         $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
@@ -322,7 +330,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player1){
                         if($ban_ura[$c][$d] == player2)
                             $okiba1[$i] = $ban[$c][$d] - 8;
+                             if($c <= 2){
+                        $ban[$c][$d] = 5;
+                        }else{
                         $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
@@ -335,7 +347,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player1){
                         if($ban_ura[$c][$d] == player2)
                             $okiba1[$i] = $ban[$c][$d] - 8;
+                             if($c <= 2){
+                        $ban[$c][$d] = 5;
+                        }else{
                         $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
@@ -348,7 +364,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player1){
                         if($ban_ura[$c][$d] == player2)
                             $okiba1[$i] = $ban[$c][$d] - 8;
+                             if($c <= 2){
+                        $ban[$c][$d] = 5;
+                        }else{
                         $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
@@ -562,7 +582,7 @@ class Limit
                     if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        if($c <= 6){
+                        if($c >= 6){
                             $ban[$c][$d] = 13;
                         }else{
                             $ban[$c][$d] = $ban[$a][$b];
@@ -780,7 +800,7 @@ class Limit
                     if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        if($c <= 6){
+                        if($c >= 6){
                         $ban[$c][$d] = 13;
                         }else{
                             $ban[$c][$d] = $ban[$a][$b];
@@ -797,7 +817,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        $ban[$c][$d] = $ban[$a][$b];
+                            if($c >= 6){
+                        $ban[$c][$d] = 13;
+                        }else{
+                            $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
@@ -810,7 +834,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        $ban[$c][$d] = $ban[$a][$b];
+                            if($c >= 6){
+                        $ban[$c][$d] = 13;
+                        }else{
+                            $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
@@ -823,7 +851,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        $ban[$c][$d] = $ban[$a][$b];
+                            if($c >= 6){
+                        $ban[$c][$d] = 13;
+                        }else{
+                            $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
@@ -836,7 +868,11 @@ class Limit
 		            if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        $ban[$c][$d] = $ban[$a][$b];
+                            if($c >= 6){
+                        $ban[$c][$d] = 13;
+                        }else{
+                            $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
@@ -855,7 +891,7 @@ class Limit
                     if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        if($c <= 6){
+                        if($c >= 6){
                             $ban[$c][$d] = 13;
                         }else{
                             $ban[$c][$d] = $ban[$a][$b];
@@ -872,7 +908,11 @@ class Limit
                     if($ban_ura[$c][$d] != player2){
                         if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                        $ban[$c][$d] = $ban[$a][$b];
+                            if($c >= 6){
+                        $ban[$c][$d] = 13;
+                        }else{
+                            $ban[$c][$d] = $ban[$a][$b];
+                        }
                         $ban[$a][$b] = 0;
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
@@ -1422,7 +1462,7 @@ class Limit
                     }
                     if($ban_ura[$c][$d] == player1)
                             $okiba2[$j] = $ban[$c][$d] + 8;
-                    if($c <= 6){
+                    if($c >= 6){
                      $ban[$c][$d] = 13;
                     }else{
                     $ban[$c][$d] = $ban[$a][$b];
