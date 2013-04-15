@@ -208,6 +208,9 @@ class Put
                         continue;
                     }
                 }
+            }elseif($okiba1[$a] == 0){
+            $check = false;
+                        echo '駒がありません。' . "\n";
             }else{
                 $ban[$c][$d] = $okiba1[$a];
                 $ban_narikin[$c][$d] = $okiba1[$a];
@@ -221,7 +224,7 @@ class Put
             if($ban[$c][$d] != 0){
                 $check = false;
                 echo '置けません' . "\n";
-            }elseif($okiba[$a] == 9){
+            }elseif($okiba2[$a] == 9){
                 for($i = 0; $i < 9; $i++){
                     if($ban[$i][$d] == 9){
                         $check = false;
@@ -229,6 +232,9 @@ class Put
                         continue;
                     }
                 }
+            }elseif($okiba2[$a] == 0){
+            $check = false;
+                        echo '駒がありません。' . "\n";
             }else{
                 $ban[$c][$d] = $okiba2[$a];
                 $ban_narikin[$c][$d] = $okiba2[$a];
@@ -1675,6 +1681,7 @@ try{
     $ban;
     $ban_ura;
     $ban_narikin;
+    $check = true;
     $okiba1 = array(0,0,0,0,0,0,0,0,0,0);
     $okiba2 = array(0,0,0,0,0,0,0,0,0,0);
     $teban = true;
@@ -1688,17 +1695,27 @@ try{
     
     while(1){
         do{
+            $a = 0;
+            $b = null;
             if($teban){
                 echo 'player1　';
             }else{
                 echo 'player2　';
             }
             echo '1動かす　2置く' . "\n";
-            fscanf(STDIN, '%d', $a);
+            fscanf(STDIN, '%d %d' , $a,$b);
+            if($b == null){
             if($a == 1){
                 $m -> move_koma();
-            }else{
+            }elseif($a == 2){
                 $pu -> put_koma();
+            }else{
+            $check = false;
+            echo("もう一度入力してください。"."\n");
+            }
+            }else{
+             $check = false;
+            echo("もう一度入力してください！"."\n");
             }
         }while($check == false);
         $pr -> Show($ban);
