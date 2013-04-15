@@ -7,6 +7,7 @@ class Prepare
 {
     function Prepare()
     {
+    try{
 	    global $ban, $ban_ura, $ban_narikin;
 	    $ban = array(
 	        array(10,11,12,13,14,13,12,11,10)
@@ -54,10 +55,14 @@ class Prepare
                 }
             }
         }
+        }catch(Exception $e){
+    echo 'エラー';
+}
     }
     
 	function Show($ban)
     {
+    try{
         global $okiba1, $okiba2;
         $k = new Koma();
         echo 'player2　';
@@ -79,13 +84,14 @@ class Prepare
         for($j = 0; $j < count($okiba1); $j++)
             echo $k -> show_koma($okiba1[$j]);
         echo "\n";
+    }catch(Exception $e){echo 'エラー';}
     }
 }
-
 class Koma
 {
     function show_koma($koma)
     {
+    try{
         switch($koma){
             case 0:
                 echo ('・');
@@ -139,6 +145,9 @@ class Koma
                 echo ("ｶｸ");
                 break;
         }
+        }catch(Exception $e){
+    echo 'エラー';
+}
     }
 }
 	
@@ -146,6 +155,7 @@ class Move
 {
     function move_koma()
     {
+    try{
         global $ban, $l;
         $a = 0;
         $b = 0;
@@ -168,6 +178,9 @@ class Move
         }catch(Exception $e){
             echo 'エラー２';
         }
+        }catch(Exception $e){
+    echo 'エラー';
+}
     }
 }
 
@@ -175,6 +188,7 @@ class Put
 {
     function put_koma()
     {
+    try{
         global $okiba1, $okiba2, $ban, $ban_ura, $ban_narikin, $teban, $check;
         
         echo '行と列を入力してください。' ."\n";
@@ -223,6 +237,9 @@ class Put
                 $check = true;
             }
         }
+        }catch(Exception $e){
+    echo 'エラー';
+}
     }
 }
 
@@ -1036,6 +1053,7 @@ class Limit
     
     function limit2($koma, $a, $b, $c, $d)
     {
+    try{
         global $ban, $ban_ura, $ban_narikin, $m, $check, $okiba1, $okiba2;
         $count = 0;
         
@@ -1614,6 +1632,9 @@ class Limit
                 }
                 break;
         }
+        }catch(Exception $e){
+    echo 'エラー';
+}
     }
     
 }
@@ -1622,6 +1643,7 @@ class Judge
 {
     function hantei($ban)
     {
+    try{
         global $teban;
         $ou_count = 0;
         
@@ -1643,6 +1665,9 @@ class Judge
             }
             return false;
         }
+        }catch(Exception $e){
+    echo 'エラー';
+}
     }
 }
 
