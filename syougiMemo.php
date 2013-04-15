@@ -158,13 +158,15 @@ class Move
         global $ban, $l, $teban, $check;
     
         try{
+        $a = null;
+        $b = null;
             $check = true;
         
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $a, $b);
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
-        
+            if($a != null && $b != null){
             $koma = $ban[$a][$b];
         
             if($teban){
@@ -186,6 +188,10 @@ class Move
                     $l -> limit2($koma, $a, $b, $c, $d);
                 }
             }
+            }else{
+            echo '入力がありません。' ."\n";
+                    $check = false;
+                    }
         }catch(Exception $e){
             echo 'エラー２';
         }
@@ -1710,14 +1716,18 @@ try{
             }else{
                 echo 'player2　';
             }
-            echo '1動かす　2置く' . "\n";
+            echo '1動かす　2置く　3盤を表示' . "\n";
             fscanf(STDIN, '%d %d' , $a,$b);
             if($b == null){
             if($a == 1){
                 $m -> move_koma();
             }elseif($a == 2){
                 $pu -> put_koma();
-            }else{
+            }elseif($a == 3){
+            $pr -> Show($ban);
+            $check = false;
+            }
+            else{
             $check = false;
             echo("もう一度入力してください。"."\n");
             }
