@@ -155,32 +155,40 @@ class Move
 {
     function move_koma()
     {
-    try{
-        global $ban, $l;
-        $a = 0;
-        $b = 0;
-        $c = 0;
-        $d = 0;
+        global $ban, $l, $teban, $check;
     
         try{
-        echo '行と列を入力してください。' ."\n";
-        fscanf(STDIN, '%d %d', $a, $b);
-        echo '行と列を入力してください。' ."\n";
-        fscanf(STDIN, '%d %d', $c, $d);
+            $check = true;
         
-        $koma = $ban[$a][$b];
+            echo '行と列を入力してください。' ."\n";
+            fscanf(STDIN, '%d %d', $a, $b);
+            echo '行と列を入力してください。' ."\n";
+            fscanf(STDIN, '%d %d', $c, $d);
         
-        if($koma != 2 && $koma != 7 && $koma != 8 && $koma != 10 && $koma != 15 && $koma != 16){
-            $l -> limit1($koma, $a, $b, $c, $d);
-        }else{
-            $l -> limit2($koma, $a, $b, $c, $d);
-        }
+            $koma = $ban[$a][$b];
+        
+            if($teban){
+                if($koma > 8 || $koma == 0){
+                    echo 'それは移動できません。' ."\n";
+                    $check = false;
+                }
+            }else{
+                if($koma < 9 || $koma == 0){
+                    echo 'それは移動できません。' ."\n";
+                    $check = false;
+                }
+            }
+        
+            if($check == true){
+                if($koma != 2 && $koma != 7 && $koma != 8 && $koma != 10 && $koma != 15 && $koma != 16){
+                    $l -> limit1($koma, $a, $b, $c, $d);
+                }else{
+                    $l -> limit2($koma, $a, $b, $c, $d);
+                }
+            }
         }catch(Exception $e){
             echo 'エラー２';
         }
-        }catch(Exception $e){
-    echo 'エラー';
-}
     }
 }
 
