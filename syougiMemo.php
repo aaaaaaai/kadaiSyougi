@@ -222,9 +222,21 @@ class Put
                         continue;
                     }
                 }
+                if($c == 0){
+                    $check = false;
+                    echo '移動できないので置けません。' . "\n";
+                }
             }elseif($okiba1[$a] == 0){
             $check = false;
                         echo '駒がありません。' . "\n";
+            }elseif($okiba1[$a] == 3){
+                if($c == 0){
+                    $check = false;
+                    echo '移動できないので置けません。' . "\n";
+                }elseif($c == 1){
+                    $check = false;
+                    echo '移動できないので置けません。' . "\n";
+                }
             }else{
                 $ban[$c][$d] = $okiba1[$a];
                 $ban_narikin[$c][$d] = $okiba1[$a];
@@ -246,9 +258,21 @@ class Put
                         continue;
                     }
                 }
+                if($c == 8){
+                    $check = false;
+                    echo '移動できないので置けません。' . "\n";
+                }
             }elseif($okiba2[$a] == 0){
             $check = false;
                         echo '駒がありません。' . "\n";
+            }elseif($okiba2[$a] == 11){
+                if($c == 8){
+                    $check = false;
+                    echo '移動できないので置けません。' . "\n";
+                }elseif($c == 7){
+                    $check = false;
+                    echo '移動できないので置けません。' . "\n";
+                }
             }else{
                 $ban[$c][$d] = $okiba2[$a];
                 $ban_narikin[$c][$d] = $okiba2[$a];
