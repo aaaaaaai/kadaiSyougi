@@ -160,15 +160,18 @@ class Move
         global $ban, $l, $teban, $check;
     
         try{
-            $a = null;
-            $b = null;
+            $a = -1;
+            $b = -1;
+            $c = -1;
+            $d = -1;
             $check = true;
         
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $a, $b);
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
-            if(($a != null && $b != null) || ($a >= 0 && $b >= 0 && $c >= 0 && $d >= 0)){
+            
+            if($a >= 0 && $b >= 0 && $c >= 0 && $d >= 0){
                 $koma = $ban[$a][$b];
     
                 if($teban){
@@ -190,10 +193,11 @@ class Move
                         $l -> limit2($koma, $a, $b, $c, $d);
                     }
                 }
-            }else{
+                }else{
                 echo '入力がありません。' ."\n";
                 $check = false;
-            }
+                }
+            
         }catch(Exception $e){
             echo 'エラー２';
         }
@@ -207,16 +211,16 @@ class Put
         try{
             global $okiba1, $okiba2, $ban, $ban_ura, $ban_narikin, $teban, $check;
 
-            $a = null;
-            $c = null;
-            $d = null;
+            $a = -1;
+            $b = -1;
+            $c = -1;
+            $d = -1;
         
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
             echo '列を入力してください。' ."\n";
             fscanf(STDIN, '%d', $a);
-        
-            if(($c != null && $d != null && $a != null) || ($c >= 0 && $d >= 0 && $a >= 0)){
+                if($c >= 0 && $d >= 0 && $a >= 0){
                 if($teban){
                     if($ban[$c][$d] != 0){
                         $check = false;
@@ -286,9 +290,11 @@ class Put
                         $check = true;
                     }
                 }
-            }else{
+                }else{
                 echo '入力が間違っています。' . "\n";
-            }
+                 $check = false;
+                }
+            
         }catch(Exception $e){
             echo 'エラー';
         }
@@ -1771,7 +1777,7 @@ try{
         if($j -> hantei($ban)){
             $teban = !($teban);
         }else{
-            break; 
+            break; ＊
         }
     }
 }catch(Exception $e){
