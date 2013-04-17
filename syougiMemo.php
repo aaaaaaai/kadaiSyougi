@@ -14,12 +14,12 @@ class Prepare
 	            ,9 =>array(0,2,3,4,5,6,5,4,3,2)
 	        );
     	    $ban_ura = array(
-	            1 => array(2,2,2,2,2,2,2,2,2)
-	            ,9 => array(1,1,1,1,1,1,1,1,1)
+	            1 => array(0,2,2,2,2,2,2,2,2,2)
+	            ,9 => array(0,1,1,1,1,1,1,1,1,1)
 	        );
     	    $ban_narikin = array(
-	            1 => array(10,11,12,13,14,13,12,11,10)
-	            ,9 =>array(2,3,4,5,6,5,4,3,2)
+	            1 => array(0,10,11,12,13,14,13,12,11,10)
+	            ,9 =>array(0,2,3,4,5,6,5,4,3,2)
 	        );
 
             for($x = 2;$x < 9;$x++){
@@ -66,7 +66,7 @@ class Prepare
             global $okiba1, $okiba2;
             $k = new Koma();
             echo 'player2Å@';
-            for($i = 0; $i < count($okiba2); $i++)
+            for($i = 1; $i < count($okiba2); $i++)
                 echo $k -> show_koma($okiba2[$i]);
             echo "\n";
             echo 'ÇPÇQÇRÇSÇTÇUÇVÇWÇX'."\n";
@@ -81,7 +81,7 @@ class Prepare
             }
             echo ('ÅPÅPÅPÅPÅPÅPÅPÅPÅP' . "\n");
             echo 'player1Å@';
-            for($j = 0; $j < count($okiba1); $j++)
+            for($j = 1; $j < count($okiba1); $j++)
                 echo $k -> show_koma($okiba1[$j]);
             echo "\n";
         }catch(Exception $e){
@@ -210,7 +210,7 @@ class Put
         try{
             global $okiba1, $okiba2, $ban, $ban_ura, $ban_narikin, $teban, $check;
 
-            $a = -1;
+            $a = 0;
             $c = 0;
             $d = 0;
         
@@ -219,7 +219,7 @@ class Put
             echo 'óÒÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB' ."\n";
             fscanf(STDIN, '%d', $a);
         
-            if($c > 0 && $d > 0 && $a >= 0){
+            if($c > 0 && $d > 0 && $a > 0){
                 if($teban){
                     if($ban[$c][$d] != 0){
                         $check = false;
@@ -236,6 +236,13 @@ class Put
                             $check = false;
                             echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
                         }
+                        else{
+                        $ban[$c][$d] = $okiba1[$a];
+                        $ban_narikin[$c][$d] = $okiba1[$a];
+                        $okiba1[$a] = 0;
+                        $ban_ura[$c][$d] = player1;
+                        $check = true;
+                        }
                     }elseif($okiba1[$a] == 0){
                         $check = false;
                         echo 'ãÓÇ™Ç†ÇËÇ‹ÇπÇÒÅB' . "\n";
@@ -246,6 +253,14 @@ class Put
                         }elseif($c == 2){
                             $check = false;
                             echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                        }
+                        else
+                        {
+                        $ban[$c][$d] = $okiba1[$a];
+                        $ban_narikin[$c][$d] = $okiba1[$a];
+                        $okiba1[$a] = 0;
+                        $ban_ura[$c][$d] = player1;
+                        $check = true;
                         }
                     }else{
                         $ban[$c][$d] = $okiba1[$a];
@@ -265,10 +280,19 @@ class Put
                                 echo 'ìÒï‡Ç≈Ç∑ÅB' . "\n";
                                 continue;
                             }
+                            
                         }
                         if($c == 9){
                             $check = false;
                             echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                        }
+                        else
+                        {
+                        $ban[$c][$d] = $okiba2[$a];
+                        $ban_narikin[$c][$d] = $okiba2[$a];
+                        $okiba2[$a] = 0;
+                        $ban_ura[$c][$d] = player2;
+                        $check = true;
                         }
                     }elseif($okiba2[$a] == 0){
                         $check = false;
@@ -280,6 +304,14 @@ class Put
                         }elseif($c == 8){
                             $check = false;
                             echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                        }
+                        else
+                        {
+                        $ban[$c][$d] = $okiba2[$a];
+                        $ban_narikin[$c][$d] = $okiba2[$a];
+                        $okiba2[$a] = 0;
+                        $ban_ura[$c][$d] = player2;
+                        $check = true;
                         }
                     }else{
                         $ban[$c][$d] = $okiba2[$a];
@@ -305,11 +337,11 @@ class Limit
     {
         try{
             global $ban, $ban_ura, $ban_narikin, $m, $check, $okiba1, $okiba2;
-            for($i = 0; $i < 10; $i++){
+            for($i = 1; $i < 11; $i++){
                 if($okiba1[$i] == 0)
                     break;
             }
-            for($j = 0; $j < 10; $j++){
+            for($j = 1; $j < 11; $j++){
                 if($okiba2[$j] == 0)
                     break;
             }
@@ -1111,11 +1143,11 @@ class Limit
             global $ban, $ban_ura, $ban_narikin, $m, $check, $okiba1, $okiba2;
             $count = 0;
     
-            for($i = 0; $i < 10; $i++){
+            for($i = 1; $i < 11; $i++){
                 if($okiba1[$i] == 0)
                     break;
             }
-            for($j = 0; $j < 10; $j++){
+            for($j = 1; $j < 11; $j++){
                 if($okiba2[$j] == 0)
                     break;
             }
@@ -1729,8 +1761,8 @@ try{
     $ban_ura;
     $ban_narikin;
     $check = true;
-    $okiba1 = array(0,0,0,0,0,0,0,0,0,0);
-    $okiba2 = array(0,0,0,0,0,0,0,0,0,0);
+    $okiba1 = array(0,0,0,0,0,0,0,0,0,0,0);
+    $okiba2 = array(0,0,0,0,0,0,0,0,0,0,0);
     $teban = true;
     
     $pr = new Prepare();
@@ -1769,8 +1801,6 @@ try{
             }
         }while($check == false);
         $pr -> Show($ban);
-        for($aa = 1; $aa<10;$aa++)
-        var_dump($ban_narikin[$aa][1]);
         if($j -> hantei($ban)){
             $teban = !($teban);
         }else{
