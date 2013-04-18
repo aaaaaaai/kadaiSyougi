@@ -10,8 +10,10 @@ class Prepare
         try{
 	        global $ban, $ban_ura, $ban_narikin;
     	    $ban = array(
-	            1 => array(0,10,11,12,13,14,13,12,11,10)
-	            ,9 =>array(0,2,3,4,5,6,5,4,3,2)
+    	        0 => array(0,0,0,0,0,0,0,0,0,0,0)
+	            ,1 => array(0,10,11,12,13,14,13,12,11,10,0)
+	            ,9 => array(0,2,3,4,5,6,5,4,3,2,0)
+	            ,10=> array(0,0,0,0,0,0,0,0,0,0,0)
 	        );
     	    $ban_ura = array(
 	            1 => array(0,2,2,2,2,2,2,2,2,2)
@@ -23,7 +25,7 @@ class Prepare
 	        );
 
             for($x = 2;$x < 9;$x++){
-                for($y = 1;$y < 10;$y++){
+                for($y = 0;$y < 11;$y++){
                     if($x == 7){
                         $ban[$x][$y] = 1;
                         $ban_ura[$x][$y] = 1;
@@ -171,8 +173,9 @@ class Move
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
             
-            if($a > 0 && $b > 0 && $c > 0 && $d > 0 && $a < 10 && $b < 10 && $c < 10 && $d < 10){
+            if($a > 0 && $b > 0 && $c > 0 && $d > 0){
                 $koma = $ban[$a][$b];
+      
                 if($teban){
                     if($koma > 8 || $koma == 0){
                         echo 'それは移動できません。' ."\n";
@@ -193,7 +196,7 @@ class Move
                     }
                 }
             }else{
-                echo 'もう一度入力してください。' ."\n";
+                echo '入力がありません。' ."\n";
                 $check = false;
             }
         }catch(Exception $e){
@@ -1723,7 +1726,7 @@ class Judge
 {
     function naruka($x1, $y1, $x2, $y2)
     {
-        global $ban, $teban,$ju;
+        global $ban, $teban, $ju;
         $a = -1;
         $b = -1;
         echo 'なりますか？　1はい　2いいえ' . "\n";
@@ -1740,7 +1743,7 @@ class Judge
             }
         }else{
             echo '入力が間違っています。' . "\n";
-           $ju -> naruka($x1, $y1, $x2, $y2);
+            $ju -> naruka($x1, $y1, $x2, $y2);
         }
     }
     
@@ -1770,6 +1773,393 @@ class Judge
             }
         }catch(Exception $e){
         echo 'エラー';
+        }
+    }
+    
+    function oute()
+    {
+        global $teban, $ban;
+        
+        $x = 0;
+        $y = 0;
+        
+        for($i = 1; $i < 10; $i++){
+            for($j = 1; $j <10; $j++){
+                if($ban[$i][$j] != 0){
+                    $koma = $ban[$i][$j];
+                    
+                switch($koma){
+                case 1:					//歩
+                    if($ban[$i - 1][$j] == 14){
+                        echo 'player1が王手' . "\n";
+                    }
+                    break;
+	    	    case 3:					//桂
+                    if($ban[$i - 2][$j + 1] == 14){
+                        echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 2][$j - 1] == 14){
+                        echo 'player1が王手' . "\n";
+                    }
+                    break;
+    		    case 4:					//銀
+                    if($ban[$i - 1][$j] == 14){
+                        echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 1][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 1][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i + 1][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i + 1][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }
+                    break;
+    		    case 5:					//金
+                    if($ban[$i - 1][$j] == 14){
+                        echo 'player1が王手' . "\n";
+                    }elseif($ban[$i][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 1][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 1][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i + 1][$j] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }
+                    break;
+    		    case 6:					//王
+                    if($ban[$i - 1][$j] == 14){
+                        echo 'player1が王手' . "\n";
+                    }elseif($ban[$i][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 1][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i - 1][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i + 1][$j + 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i + 1][$j - 1] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }elseif($ban[$i + 1][$j] == 14){
+	    	            echo 'player1が王手' . "\n";
+                    }
+                    break;
+
+    		    case 9:					//ふ
+                    if($ban[$i + 1][$j] == 6){
+                        echo 'player2が王手' . "\n";
+                    }
+                    break;
+    		    case 14:					//ｵｳ
+                    if($ban[$i + 1][$j] == 6){
+                        echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 1][$j - 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 1][$j + 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i][$j + 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i][$j - 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i - 1][$j + 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i - 1][$j - 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i - 1][$j] == 6){
+		                echo 'player2が王手' . "\n";
+                    }
+                    break;
+    		    case 13:					//ｷﾝ
+                    if($ban[$i + 1][$j] == 6){
+                        echo 'player2が王手' . "\n";
+                    }elseif($ban[$i][$j - 1] == 6){
+	    	            echo 'player2が王手' . "\n";
+                    }elseif($ban[$i][$j + 1] == 6){
+	    	            echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 1][$j + 1] == 6){
+	    	            echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 1][$j - 1] == 6){
+    		            echo 'player2が王手' . "\n";
+                    }elseif($ban[$i - 1][$j] == 6){
+		                echo 'player2が王手' . "\n";
+                    }
+                    break;
+	    	    case 12:					//ｷﾞﾝ
+                    if($ban[$i + 1][$j] == 6){
+                        echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 1][$j + 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 1][$j - 1] == 6){
+	    	            echo 'player2が王手' . "\n";
+                    }elseif($ban[$i - 1][$j + 1] == 6){
+	    	            echo 'player2が王手' . "\n";
+                    }elseif($ban[$i - 1][$j - 1] == 6){
+		                echo 'player2が王手' . "\n";
+                    }
+                    break;
+    		    case 11:					//ｹｲ
+                    if($ban[$i + 2][$j + 1] == 6){
+                        echo 'player2が王手' . "\n";
+                    }elseif($ban[$i + 2][$j - 1] == 6){
+                        echo 'player2が王手' . "\n";
+                    }
+                    break;
+                    
+                    
+                
+                case 2:
+                    $x = $i - 1;
+                        while($x > 0){
+                            if($ban[$x][$j] != 0){
+                                if($ban[$x][$j] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                        }
+                    break;
+            
+                case 7:
+                        //上
+                        $x = $i - 1;
+                        while($x > 0){
+                            if($ban[$x][$j] != 0){
+                                if($ban[$x][$j] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                        }
+                        
+                        //下
+                        $x = $i + 1;
+                        while($x < 10){
+                            if($ban[$x][$j] != 0){
+                                if($ban[$x][$j] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                        }
+                        
+                        //右
+                        $x = $j + 1;
+                        while($x < 10){
+                            if($ban[$i][$x] != 0){
+                                if($ban[$i][$x] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                        }
+                        
+                          //左
+                        $x = $j - 1;
+                        while($x > 0){
+                            if($ban[$i][$x] != 0){
+                                if($ban[$i][$x] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                        }
+                    break;
+             
+                case 8:
+                    
+            
+                       //右上
+                        $x = $i - 1;
+                        $y = $j + 1;
+                        while($x > 0 && $y < 10){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                            $y++;
+                        }
+                        
+                        //右下
+                        $x = $i + 1;
+                        $y = $j + 1;
+                        while($x < 10 && $y < 10){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                            $y++;
+                        }
+                        
+                        //左上
+                        $x = $i - 1;
+                        $y = $j - 1;
+                        while($x > 0 && $y > 0){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                            $y--;
+                        }
+                        
+                       //左下
+                        $x = $i + 1;
+                        $y = $j - 1;
+                        while($x < 10 && $y > 0){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 14){
+                                    echo 'player1が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                            $y--;
+                        }
+                        
+                    break;
+            
+                case 15:
+                    //上
+                        $x = $i - 1;
+                        while($x > 0){
+                            if($ban[$x][$j] != 0){
+                                if($ban[$x][$j] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                        }
+                        
+                        //下
+                        $x = $i + 1;
+                        while($x < 10){
+                            if($ban[$x][$j] != 0){
+                                if($ban[$x][$j] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                        }
+                        
+                        //右
+                        $x = $j + 1;
+                        while($x < 10){
+                            if($ban[$i][$x] != 0){
+                                if($ban[$i][$x] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                        }
+                        
+                          //左
+                        $x = $j - 1;
+                        while($x > 0){
+                            if($ban[$i][$x] != 0){
+                                if($ban[$i][$x] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                        }
+                    break;
+                
+                case 16:    
+                    //右上
+                        $x = $i - 1;
+                        $y = $j + 1;
+                        while($x > 0 && $y < 10){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                            $y++;
+                        }
+                        
+                        //右下
+                        $x = $i + 1;
+                        $y = $j + 1;
+                        while($x < 10 && $y < 10){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                            $y++;
+                        }
+                        
+                        //左上
+                        $x = $i - 1;
+                        $y = $j - 1;
+                        while($x > 0 && $y > 0){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x--;
+                            $y--;
+                        }
+                        
+                       //左下
+                        $x = $i + 1;
+                        $y = $j - 1;
+                        while($x < 10 && $y > 0){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                            $y--;
+                        }
+                        
+                    break;
+           
+                case 10:
+                    $x = $i + 1;
+                        while($x < 10){
+                            if($ban[$x][$y] != 0){
+                                if($ban[$x][$y] == 6){
+                                    echo 'player2が王手' . "\n";
+                                }
+                                break;
+                            }
+                            $x++;
+                        }
+                        
+                    break;
+            }
+                }
+            }
         }
     }
 }
@@ -1820,6 +2210,7 @@ try{
         }while($check == false);
         $pr -> Show($ban);
         if($ju -> hantei($ban)){
+            $ju -> oute();
             $teban = !($teban);
         }else{
             break; 
