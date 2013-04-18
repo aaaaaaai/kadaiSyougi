@@ -235,13 +235,12 @@ class Put
                         if($c == 1){
                             $check = false;
                             echo '移動できないので置けません。' . "\n";
-                        }
-                        else{
-                        $ban[$c][$d] = $okiba1[$a];
-                        $ban_narikin[$c][$d] = $okiba1[$a];
-                        $okiba1[$a] = 0;
-                        $ban_ura[$c][$d] = player1;
-                        $check = true;
+                        }else{
+                            $ban[$c][$d] = $okiba1[$a];
+                            $ban_narikin[$c][$d] = $okiba1[$a];
+                            $okiba1[$a] = 0;
+                            $ban_ura[$c][$d] = player1;
+                            $check = true;
                         }
                     }elseif($okiba1[$a] == 0){
                         $check = false;
@@ -253,14 +252,12 @@ class Put
                         }elseif($c == 2){
                             $check = false;
                             echo '移動できないので置けません。' . "\n";
-                        }
-                        else
-                        {
-                        $ban[$c][$d] = $okiba1[$a];
-                        $ban_narikin[$c][$d] = $okiba1[$a];
-                        $okiba1[$a] = 0;
-                        $ban_ura[$c][$d] = player1;
-                        $check = true;
+                        }else{
+                            $ban[$c][$d] = $okiba1[$a];
+                            $ban_narikin[$c][$d] = $okiba1[$a];
+                            $okiba1[$a] = 0;
+                            $ban_ura[$c][$d] = player1;
+                            $check = true;
                         }
                     }else{
                         $ban[$c][$d] = $okiba1[$a];
@@ -280,19 +277,16 @@ class Put
                                 echo '二歩です。' . "\n";
                                 continue;
                             }
-                            
                         }
                         if($c == 9){
                             $check = false;
                             echo '移動できないので置けません。' . "\n";
-                        }
-                        else
-                        {
-                        $ban[$c][$d] = $okiba2[$a];
-                        $ban_narikin[$c][$d] = $okiba2[$a];
-                        $okiba2[$a] = 0;
-                        $ban_ura[$c][$d] = player2;
-                        $check = true;
+                        }else{
+                            $ban[$c][$d] = $okiba2[$a];
+                            $ban_narikin[$c][$d] = $okiba2[$a];
+                            $okiba2[$a] = 0;
+                            $ban_ura[$c][$d] = player2;
+                            $check = true;
                         }
                     }elseif($okiba2[$a] == 0){
                         $check = false;
@@ -304,14 +298,12 @@ class Put
                         }elseif($c == 8){
                             $check = false;
                             echo '移動できないので置けません。' . "\n";
-                        }
-                        else
-                        {
-                        $ban[$c][$d] = $okiba2[$a];
-                        $ban_narikin[$c][$d] = $okiba2[$a];
-                        $okiba2[$a] = 0;
-                        $ban_ura[$c][$d] = player2;
-                        $check = true;
+                        }else{
+                            $ban[$c][$d] = $okiba2[$a];
+                            $ban_narikin[$c][$d] = $okiba2[$a];
+                            $okiba2[$a] = 0;
+                            $ban_ura[$c][$d] = player2;
+                            $check = true;
                         }
                     }else{
                         $ban[$c][$d] = $okiba2[$a];
@@ -336,7 +328,7 @@ class Limit
     function limit1($koma, $a, $b, $c, $d)
     {
         try{
-            global $ban, $ban_ura, $ban_narikin, $m, $check, $okiba1, $okiba2;
+            global $ban, $ban_ura, $ban_narikin, $ju, $check, $okiba1, $okiba2;
             for($i = 1; $i < 11; $i++){
                 if($okiba1[$i] == 0)
                     break;
@@ -352,7 +344,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1140,7 +1132,7 @@ class Limit
     function limit2($koma, $a, $b, $c, $d)
     {
         try{
-            global $ban, $ban_ura, $ban_narikin, $m, $check, $okiba1, $okiba2;
+            global $ban, $ban_ura, $ban_narikin, $ju, $check, $okiba1, $okiba2;
             $count = 0;
     
             for($i = 1; $i < 11; $i++){
@@ -1175,7 +1167,7 @@ class Limit
                         if($ban_ura[$c][$d] == player2)
                             $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                         if($c <= 3){
-                            $ban[$c][$d] = 5;
+                            $ju -> naruka($a, $b, $c, $d);
                         }else{
                             $ban[$c][$d] = $ban[$a][$b];
                         }
@@ -1698,10 +1690,14 @@ class Limit
                                 break;
                             }
                         }
-                        if($ban_ura[$c][$d] == player1)
+                        
+                        if($ban_ura[$c][$d] == player1){
+                        var_dump($okiba2[$j]);
                             $okiba2[$j] = $ban_narikin[$c][$d] + 8;
+                        var_dump($okiba2[$j]);
+                        }
                         if($c >= 7){
-                            $ban[$c][$d] = 13;
+                            $ju -> naruka($a, $b, $c, $d);
                         }else{
                             $ban[$c][$d] = $ban[$a][$b];
                         }
@@ -1726,6 +1722,30 @@ class Limit
 
 class Judge
 {
+    function naruka($x1, $y1, $x2, $y2)
+    {
+        global $ban, $teban;
+        $a = -1;
+        $b = -1;
+        echo 'なりますか？　1はい　2いいえ' . "\n";
+        fscanf(STDIN, '%d %d' , $a,$b);
+        if(($a == 1 || $a == 2) && $b == -1){
+            if($a == 1){
+                if($teban){
+                    $ban[$x2][$y2] = 5;
+                }else{
+                    $ban[$x2][$y2] = 13;
+                }
+            }else{
+                $ban[$x2][$y2] = $ban[$x1][$y1];
+            }
+        }else{
+            echo '入力が間違っています。' . "\n";
+            $c = 'naruka';
+            $c($x1, $y1, $x2, $y2);///////////////////////////////////////////////////
+        }
+    }
+    
     function hantei($ban)
     {
         try{
@@ -1769,13 +1789,13 @@ try{
     $pr -> Show($ban);
     $l = new Limit();
     $m = new Move();
-    $j = new Judge();
+    $ju = new Judge();
     $pu = new Put();
     
     while(1){
         do{
             $a = 0;
-            $b = null;
+            $b = -1;
             if($teban){
                 echo 'player1　';
             }else{
@@ -1783,7 +1803,7 @@ try{
             }
             echo '1動かす　2置く　3盤を表示' . "\n";
             fscanf(STDIN, '%d %d' , $a,$b);
-            if($b == null){
+            if($b == -1){
                 if($a == 1){
                     $m -> move_koma();
                 }elseif($a == 2){
@@ -1801,7 +1821,7 @@ try{
             }
         }while($check == false);
         $pr -> Show($ban);
-        if($j -> hantei($ban)){
+        if($ju -> hantei($ban)){
             $teban = !($teban);
         }else{
             break; 
