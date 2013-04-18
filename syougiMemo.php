@@ -171,9 +171,8 @@ class Move
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
             
-            if($a > 0 && $b > 0 && $c > 0 && $d > 0){
+            if($a > 0 && $b > 0 && $c > 0 && $d > 0 && $a < 10 && $b < 10 && $c < 10 && $d < 10){
                 $koma = $ban[$a][$b];
-      
                 if($teban){
                     if($koma > 8 || $koma == 0){
                         echo 'それは移動できません。' ."\n";
@@ -194,7 +193,7 @@ class Move
                     }
                 }
             }else{
-                echo '入力がありません。' ."\n";
+                echo 'もう一度入力してください。' ."\n";
                 $check = false;
             }
         }catch(Exception $e){
@@ -369,7 +368,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -388,7 +387,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -413,7 +412,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -432,7 +431,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -451,7 +450,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -470,7 +469,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -489,7 +488,7 @@ class Limit
                             if($ban_ura[$c][$d] == player2)
                                 $okiba1[$i] = $ban_narikin[$c][$d] - 8;
                             if($c <= 3){
-                                $ban[$c][$d] = 5;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -737,7 +736,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -984,7 +983,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1003,7 +1002,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);;
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1022,7 +1021,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1041,7 +1040,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1060,7 +1059,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1085,7 +1084,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1104,7 +1103,7 @@ class Limit
                             if($ban_ura[$c][$d] == player1)
                                 $okiba2[$j] = $ban_narikin[$c][$d] + 8;
                             if($c >= 7){
-                                $ban[$c][$d] = 13;
+                                $ju -> naruka($a, $b, $c, $d);
                             }else{
                                 $ban[$c][$d] = $ban[$a][$b];
                             }
@@ -1724,7 +1723,7 @@ class Judge
 {
     function naruka($x1, $y1, $x2, $y2)
     {
-        global $ban, $teban;
+        global $ban, $teban,$ju;
         $a = -1;
         $b = -1;
         echo 'なりますか？　1はい　2いいえ' . "\n";
@@ -1741,8 +1740,7 @@ class Judge
             }
         }else{
             echo '入力が間違っています。' . "\n";
-            $c = 'naruka';
-            $c($x1, $y1, $x2, $y2);///////////////////////////////////////////////////
+           $ju -> naruka($x1, $y1, $x2, $y2);
         }
     }
     
