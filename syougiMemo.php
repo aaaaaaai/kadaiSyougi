@@ -215,6 +215,7 @@ class Put
             $a = 0;
             $c = 0;
             $d = 0;
+            $check = true;
         
             echo '行と列を入力してください。' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
@@ -237,7 +238,7 @@ class Put
                         if($c == 1){
                             $check = false;
                             echo '移動できないので置けません。' . "\n";
-                        }else{
+                        }elseif($check){
                             $ban[$c][$d] = $okiba1[$a];
                             $ban_narikin[$c][$d] = $okiba1[$a];
                             $okiba1[$a] = 0;
@@ -283,7 +284,7 @@ class Put
                         if($c == 9){
                             $check = false;
                             echo '移動できないので置けません。' . "\n";
-                        }else{
+                        }elseif($check){
                             $ban[$c][$d] = $okiba2[$a];
                             $ban_narikin[$c][$d] = $okiba2[$a];
                             $okiba2[$a] = 0;
