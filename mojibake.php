@@ -58,7 +58,7 @@ class Prepare
                 }
             }
         }catch(Exception $e){
-            echo 'ÉGÉâÅ[';
+            echo '„Ç®„É©„Éº';
         }
     }
     
@@ -67,11 +67,11 @@ class Prepare
         try{
             global $okiba1, $okiba2;
             $k = new Koma();
-            echo 'player2Å@';
+            echo 'player2„ÄÄ';
             for($i = 1; $i < count($okiba2); $i++)
                 echo $k -> show_koma($okiba2[$i]);
             echo "\n";
-            echo 'ÇPÇQÇRÇSÇTÇUÇVÇWÇX'."\n";
+            echo 'ÔºÊâòÔΩºÊäµÔΩºÈõ£ÔΩºË≤ªÔΩºÂåÖÔΩºÂéÑÔΩºÊö¶ÔΩºÂÅáÔΩºô'."\n";
             echo '__________________'. "\n";
             for($x = 1;$x < 10;$x++){
                 for($y = 1;$y < 10;$y++){
@@ -81,13 +81,13 @@ class Prepare
                 echo ($x + 0);
                 echo ("\n");
             }
-            echo ('ÅPÅPÅPÅPÅPÅPÅPÅPÅP' . "\n");
-            echo 'player1Å@';
+            echo ('ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£ÔøÔΩ£' . "\n");
+            echo 'player1„ÄÄ';
             for($j = 1; $j < count($okiba1); $j++)
                 echo $k -> show_koma($okiba1[$j]);
             echo "\n";
         }catch(Exception $e){
-            echo 'ÉGÉâÅ[';
+            echo '„Ç®„É©„Éº';
         }
     }
 }
@@ -98,59 +98,59 @@ class Koma
         try{
             switch($koma){
                 case 0:
-                    echo ('ÅE');
+                    echo ('ÁπùÔΩª');
                     break;
                 case 1:
-                    echo ("ï‡");
+                    echo ("Ë±ÅÔΩ©");
                     break;
     		    case 2:
-                    echo ("çÅ");
+                    echo ("È¨•ô");
                     break;
 		        case 3:
-                    echo ("åj");
+                    echo ("Ê°Ç");
                     break;
 	    	    case 4:
-                    echo ("ã‚");
+                    echo ("ÈäÄ");
                     break;
     		    case 5:
-                    echo ("ã‡");
+                    echo ("Èáë");
                     break;
 		        case 6:
-                    echo ("â§");
+                    echo ("Áéã");
                     break;
     		    case 7:
-                    echo ("îÚ");
+                    echo ("È£õ");
                     break;
 		        case 8:
-                    echo ("äp");
+                    echo ("Ëßí");
                     break;
     		    case 9:
-                    echo ("Ét");
+                    echo ("„Éï");
                     break;
 		        case 10:
-                    echo ("∑Æ");
+                    echo ("ÔΩ∑ÔΩÆ");
                     break;
     		    case 11:
-                    echo ("π≤");
+                    echo ("ÔΩπÔΩ≤");
                     break;
 		        case 12:
-                    echo ("∑ﬁ");
+                    echo ("ÔΩ∑Ôæû");
                     break;
     		    case 13:
-                    echo ("∑›");
+                    echo ("ÔΩ∑Ôæù");
                     break;
     		    case 14:
-                    echo ("µ≥");
+                    echo ("ÔΩµÔΩ≥");
                     break;
 	    	    case 15:
-                    echo ("Àº");
+                    echo ("ÔæãÔΩº");
                     break;
     		    case 16:
-                    echo ("∂∏");
+                    echo ("ÔΩ∂ÔΩ∏");
                     break;
             }
         }catch(Exception $e){
-            echo 'ÉGÉâÅ[';
+            echo '„Ç®„É©„Éº';
         }
     }
 }
@@ -168,9 +168,9 @@ class Move
             $d = 0;
             $check = true;
         
-            echo 'çsÇ∆óÒÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB' ."\n";
+            echo 'Ë°å„Å®Âàó„ÇíÂÖ•Âäõ„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ' ."\n";
             fscanf(STDIN, '%d %d', $a, $b);
-            echo 'çsÇ∆óÒÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB' ."\n";
+            echo 'Ë°å„Å®Âàó„ÇíÂÖ•Âäõ„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
             
             if($a > 0 && $b > 0 && $c > 0 && $d > 0){
@@ -178,12 +178,12 @@ class Move
       
                 if($teban){
                     if($koma > 8 || $koma == 0){
-                        echo 'ÇªÇÍÇÕà⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' ."\n";
+                        echo '„Åù„Çå„ÅØÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' ."\n";
                         $check = false;
                     }
                 }else{
                     if($koma < 9 || $koma == 0){
-                        echo 'ÇªÇÍÇÕà⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' ."\n";
+                        echo '„Åù„Çå„ÅØÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' ."\n";
                         $check = false;
                     }
                 }
@@ -196,11 +196,11 @@ class Move
                     }
                 }
             }else{
-                echo 'ì¸óÕÇ™Ç†ÇËÇ‹ÇπÇÒÅB' ."\n";
+                echo 'ÂÖ•Âäõ„Åå„ÅÇ„Çä„Åæ„Åõ„Çì„ÄÇ' ."\n";
                 $check = false;
             }
         }catch(Exception $e){
-            echo 'ÉGÉâÅ[ÇQ';
+            echo '„Ç®„É©„ÉºÔºí';
         }
     }
 }
@@ -215,30 +215,29 @@ class Put
             $a = 0;
             $c = 0;
             $d = 0;
-            $check = true;
         
-            echo 'çsÇ∆óÒÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB' ."\n";
+            echo 'Ë°å„Å®Âàó„ÇíÂÖ•Âäõ„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ' ."\n";
             fscanf(STDIN, '%d %d', $c, $d);
-            echo 'óÒÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB' ."\n";
+            echo 'Âàó„ÇíÂÖ•Âäõ„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ' ."\n";
             fscanf(STDIN, '%d', $a);
         
             if($c > 0 && $d > 0 && $a > 0){
                 if($teban){
                     if($ban[$c][$d] != 0){
                         $check = false;
-                        echo 'íuÇØÇ‹ÇπÇÒ' . "\n";
+                        echo 'ÁΩÆ„Åë„Åæ„Åõ„Çì' . "\n";
                     }elseif($okiba1[$a] == 1){
                         for($i = 1; $i < 10; $i++){
                             if($ban[$i][$d] == 1){
                                 $check = false;
-                                echo 'ìÒï‡Ç≈Ç∑ÅB' . "\n";
+                                echo '‰∫åÊ≠©„Åß„Åô„ÄÇ' . "\n";
                                 continue;
                             }
                         }
                         if($c == 1){
                             $check = false;
-                            echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
-                        }elseif($check){
+                            echo 'ÁßªÂãï„Åß„Åç„Å™„ÅÑ„ÅÆ„ÅßÁΩÆ„Åë„Åæ„Åõ„Çì„ÄÇ' . "\n";
+                        }else{
                             $ban[$c][$d] = $okiba1[$a];
                             $ban_narikin[$c][$d] = $okiba1[$a];
                             $okiba1[$a] = 0;
@@ -247,14 +246,14 @@ class Put
                         }
                     }elseif($okiba1[$a] == 0){
                         $check = false;
-                        echo 'ãÓÇ™Ç†ÇËÇ‹ÇπÇÒÅB' . "\n";
+                        echo 'Èßí„Åå„ÅÇ„Çä„Åæ„Åõ„Çì„ÄÇ' . "\n";
                     }elseif($okiba1[$a] == 3){
                         if($c == 1){
                             $check = false;
-                            echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Å™„ÅÑ„ÅÆ„ÅßÁΩÆ„Åë„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         }elseif($c == 2){
                             $check = false;
-                            echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Å™„ÅÑ„ÅÆ„ÅßÁΩÆ„Åë„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         }else{
                             $ban[$c][$d] = $okiba1[$a];
                             $ban_narikin[$c][$d] = $okiba1[$a];
@@ -272,19 +271,19 @@ class Put
                 }else{
                     if($ban[$c][$d] != 0){
                         $check = false;
-                        echo 'íuÇØÇ‹ÇπÇÒ' . "\n";
+                        echo 'ÁΩÆ„Åë„Åæ„Åõ„Çì' . "\n";
                     }elseif($okiba2[$a] == 9){
                         for($i = 1; $i < 10; $i++){
                             if($ban[$i][$d] == 9){
                                 $check = false;
-                                echo 'ìÒï‡Ç≈Ç∑ÅB' . "\n";
+                                echo '‰∫åÊ≠©„Åß„Åô„ÄÇ' . "\n";
                                 continue;
                             }
                         }
                         if($c == 9){
                             $check = false;
-                            echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
-                        }elseif($check){
+                            echo 'ÁßªÂãï„Åß„Åç„Å™„ÅÑ„ÅÆ„ÅßÁΩÆ„Åë„Åæ„Åõ„Çì„ÄÇ' . "\n";
+                        }else{
                             $ban[$c][$d] = $okiba2[$a];
                             $ban_narikin[$c][$d] = $okiba2[$a];
                             $okiba2[$a] = 0;
@@ -293,14 +292,14 @@ class Put
                         }
                     }elseif($okiba2[$a] == 0){
                         $check = false;
-                        echo 'ãÓÇ™Ç†ÇËÇ‹ÇπÇÒÅB' . "\n";
+                        echo 'Èßí„Åå„ÅÇ„Çä„Åæ„Åõ„Çì„ÄÇ' . "\n";
                     }elseif($okiba2[$a] == 11){
                         if($c == 9){
                             $check = false;
-                            echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Å™„ÅÑ„ÅÆ„ÅßÁΩÆ„Åë„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         }elseif($c == 8){
                             $check = false;
-                            echo 'à⁄ìÆÇ≈Ç´Ç»Ç¢ÇÃÇ≈íuÇØÇ‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Å™„ÅÑ„ÅÆ„ÅßÁΩÆ„Åë„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         }else{
                             $ban[$c][$d] = $okiba2[$a];
                             $ban_narikin[$c][$d] = $okiba2[$a];
@@ -317,11 +316,11 @@ class Put
                     }
                 }
             }else{
-                echo 'ì¸óÕÇ™ä‘à·Ç¡ÇƒÇ¢Ç‹Ç∑ÅB' . "\n";
+                echo 'ÂÖ•Âäõ„ÅåÈñìÈÅï„Å£„Å¶„ÅÑ„Åæ„Åô„ÄÇ' . "\n";
                 $check = false;
             }
         }catch(Exception $e){
-            echo 'ÉGÉâÅ[';
+            echo '„Ç®„É©„Éº';
         }
     }
 }
@@ -341,7 +340,7 @@ class Limit
                     break;
             }
             switch($koma){
-                case 1:					//ï‡
+                case 1:					//Ê≠©
                     if($c == $a - 1 && $d == $b){
                         if($ban_ura[$c][$d] != player1){
                             if($ban_ura[$c][$d] == player2)
@@ -358,15 +357,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-	    	    case 3:					//åj
+	    	    case 3:					//Ê°Ç
                     if($c == $a -2 && $d == $b +1){
                         if($ban_ura[$c][$d] != player1){
                             if($ban_ura[$c][$d] == player2)
@@ -383,7 +382,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -2 && $d == $b -1){
@@ -402,15 +401,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-    		    case 4:					//ã‚
+    		    case 4:					//ÈäÄ
                     if($c == $a - 1 && $d == $b){
                         if($ban_ura[$c][$d] != player1){
                             if($ban_ura[$c][$d] == player2)
@@ -427,7 +426,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b +1){
@@ -446,7 +445,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b -1){
@@ -465,7 +464,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b +1){
@@ -484,7 +483,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b -1){
@@ -503,15 +502,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-    		    case 5:					//ã‡
+    		    case 5:					//Èáë
                     if($c == $a - 1 && $d == $b){
                         if($ban_ura[$c][$d] != player1){
                             if($ban_ura[$c][$d] == player2)
@@ -524,7 +523,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b +1){
@@ -539,7 +538,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b -1){
@@ -554,7 +553,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b +1){
@@ -569,7 +568,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b -1){
@@ -584,7 +583,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b ){
@@ -599,15 +598,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-    		    case 6:					//â§
+    		    case 6:					//Áéã
                     if($c == $a - 1 && $d == $b){
                         if($ban_ura[$c][$d] != player1){
                             if($ban_ura[$c][$d] == player2)
@@ -620,7 +619,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b +1){
@@ -635,7 +634,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b -1){
@@ -650,7 +649,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b +1){
@@ -665,7 +664,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b -1){
@@ -680,7 +679,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b +1){
@@ -695,7 +694,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b -1){
@@ -710,7 +709,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b ){
@@ -725,16 +724,16 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
 
-    		    case 9:					//Ç”
+    		    case 9:					//„Åµ
                     if($c == $a + 1 && $d == $b){
                         if($ban_ura[$c][$d] != player2){
                             if($ban_ura[$c][$d] == player1)
@@ -751,15 +750,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-    		    case 14:					//µ≥
+    		    case 14:					//ÔΩµÔΩ≥
                     if($c == $a + 1 && $d == $b){
                         if($ban_ura[$c][$d] != player2){
                             if($ban_ura[$c][$d] == player1)
@@ -772,7 +771,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b -1){
@@ -787,7 +786,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b +1){
@@ -802,7 +801,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b +1){
@@ -817,7 +816,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b -1){
@@ -832,7 +831,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b +1){
@@ -847,7 +846,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                           echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                           echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                            $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b -1){
@@ -862,7 +861,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b ){
@@ -877,15 +876,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-    		    case 13:					//∑›
+    		    case 13:					//ÔΩ∑Ôæù
                     if($c == $a + 1 && $d == $b){
                         if($ban_ura[$c][$d] != player2){
                             if($ban_ura[$c][$d] == player1)
@@ -898,7 +897,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b -1){
@@ -913,7 +912,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a  && $d == $b +1){
@@ -928,7 +927,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b +1){
@@ -943,7 +942,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b -1){
@@ -958,7 +957,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b ){
@@ -973,15 +972,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-	    	    case 12:					//∑ﬁ›
+	    	    case 12:					//ÔΩ∑ÔæûÔæù
                     if($c == $a + 1 && $d == $b){
                         if($ban_ura[$c][$d] != player2){
                             if($ban_ura[$c][$d] == player1)
@@ -998,7 +997,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b +1){
@@ -1017,7 +1016,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +1 && $d == $b -1){
@@ -1036,7 +1035,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b +1){
@@ -1055,7 +1054,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a -1 && $d == $b -1){
@@ -1074,15 +1073,15 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
-    		    case 11:					//π≤
+    		    case 11:					//ÔΩπÔΩ≤
                     if($c == $a +2 && $d == $b +1){
                         if($ban_ura[$c][$d] != player2){
                             if($ban_ura[$c][$d] == player1)
@@ -1099,7 +1098,7 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }elseif($c == $a +2 && $d == $b -1){
@@ -1118,17 +1117,17 @@ class Limit
                             $ban_ura[$a][$b] = 0;
                             $check = true;
                         }else{
-                            echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                            echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                             $check = false;
                         }
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
             }
         }catch(Exception $e){
-            echo 'ÉGÉâÅ[3';
+            echo '„Ç®„É©„Éº3';
         }
     }
     
@@ -1158,11 +1157,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1181,13 +1180,13 @@ class Limit
                         $ban_ura[$a][$b] = 0;
                         $check = true;
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
             
                 case 7:
-                    if($c < $a && $d == $b){    //è„
+                    if($c < $a && $d == $b){    //‰∏ä
                         $x = $a - 1;
                         while($x >= $c){
                             if($ban[$x][$d] != 0)
@@ -1196,11 +1195,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1214,7 +1213,7 @@ class Limit
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c > $a && $d == $b){    //â∫
+                    }elseif($c > $a && $d == $b){    //‰∏ã
                         $x = $a + 1;
                         while($x <= $c){
                             if($ban[$x][$d] != 0)
@@ -1223,11 +1222,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1241,7 +1240,7 @@ class Limit
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c == $a && $d > $b){    //âE
+                    }elseif($c == $a && $d > $b){    //Âè≥
                         $x = $b + 1;
                         while($x <= $d){
                             if($ban[$c][$x] != 0)
@@ -1250,11 +1249,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1268,7 +1267,7 @@ class Limit
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c == $a && $d < $b){    //ç∂
+                    }elseif($c == $a && $d < $b){    //Â∑¶
                         $x = $b - 1;
                         while($x >= $d){
                             if($ban[$c][$x] != 0)
@@ -1277,11 +1276,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1296,19 +1295,19 @@ class Limit
                         $ban_ura[$a][$b] = 0;
                         $check = true;
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
              
                 case 8:
                     if((($c - $a) != ($d - $b)) && (($a - $c) != ($d - $b))){
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                         break;
                     }
             
-                    if($c < $a && $d > $b){    //âEè„
+                    if($c < $a && $d > $b){    //Âè≥‰∏ä
                         $x = $a - 1;
                         $y = $b + 1;
                         while($x >= $c){
@@ -1319,11 +1318,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1337,7 +1336,7 @@ class Limit
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c > $a && $d > $b){    //âEâ∫
+                    }elseif($c > $a && $d > $b){    //Âè≥‰∏ã
                         $x = $a + 1;
                         $y = $b + 1;
                         while($x <= $c){
@@ -1348,11 +1347,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1366,7 +1365,7 @@ class Limit
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c < $a && $d < $b){    //ç∂è„
+                    }elseif($c < $a && $d < $b){    //Â∑¶‰∏ä
                         $x = $a - 1;
                         $y = $b - 1;
                         while($x >= $c){
@@ -1377,11 +1376,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1395,7 +1394,7 @@ class Limit
                         $ban_ura[$c][$d] = player1;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c > $a && $d < $b){    //ç∂â∫
+                    }elseif($c > $a && $d < $b){    //Â∑¶‰∏ã
                         $x = $a + 1;
                         $y = $b - 1;
                         while($x <= $c){
@@ -1406,11 +1405,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player1)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1425,13 +1424,13 @@ class Limit
                         $ban_ura[$a][$b] = 0;
                         $check = true;
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
             
                 case 15:
-                    if($c < $a && $d == $b){    //è„
+                    if($c < $a && $d == $b){    //‰∏ä
                         $x = $a - 1;
                         while($x >= $c){
                             if($ban[$x][$d] != 0)
@@ -1440,11 +1439,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1458,7 +1457,7 @@ class Limit
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c > $a && $d == $b){    //â∫
+                    }elseif($c > $a && $d == $b){    //‰∏ã
                         $x = $a + 1;
                         while($x <= $c){
                             if($ban[$x][$d] != 0)
@@ -1467,11 +1466,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1485,7 +1484,7 @@ class Limit
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c == $a && $d > $b){    //âE
+                    }elseif($c == $a && $d > $b){    //Âè≥
                         $x = $b + 1;
                         while($x <= $d){
                             if($ban[$c][$x] != 0)
@@ -1494,11 +1493,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1512,7 +1511,7 @@ class Limit
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c == $a && $d < $b){    //ç∂
+                    }elseif($c == $a && $d < $b){    //Â∑¶
                         $x = $b - 1;
                         while($x >= $d){
                             if($ban[$c][$x] != 0)
@@ -1521,11 +1520,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1540,19 +1539,19 @@ class Limit
                         $ban_ura[$a][$b] = 0;
                         $check = true;
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
                 
                 case 16:    
                     if((($c - $a) != ($d - $b)) && (($a - $c) != ($d - $b))){
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                         break;
                     }
             
-                    if($c < $a && $d > $b){    //âEè„
+                    if($c < $a && $d > $b){    //Âè≥‰∏ä
                         $x = $a - 1;
                         $y = $b + 1;
                         while($x >= $c){
@@ -1563,11 +1562,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1581,7 +1580,7 @@ class Limit
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c > $a && $d > $b){    //âEâ∫
+                    }elseif($c > $a && $d > $b){    //Âè≥‰∏ã
                         $x = $a + 1;
                         $y = $b + 1;
                         while($x <= $c){
@@ -1592,11 +1591,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1610,7 +1609,7 @@ class Limit
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c < $a && $d < $b){    //ç∂è„
+                    }elseif($c < $a && $d < $b){    //Â∑¶‰∏ä
                         $x = $a - 1;
                         $y = $b - 1;
                         while($x >= $c){
@@ -1621,11 +1620,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1639,7 +1638,7 @@ class Limit
                         $ban_ura[$c][$d] = player2;
                         $ban_ura[$a][$b] = 0;
                         $check = true;
-                    }elseif($c > $a && $d < $b){    //ç∂â∫
+                    }elseif($c > $a && $d < $b){    //Â∑¶‰∏ã
                         $x = $a + 1;
                         $y = $b - 1;
                         while($x <= $c){
@@ -1650,11 +1649,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1669,7 +1668,7 @@ class Limit
                         $ban_ura[$a][$b] = 0;
                         $check = true;
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
@@ -1684,11 +1683,11 @@ class Limit
                         }
                         if($count != 0){
                             if(($ban_ura[$c][$d] == 0) || ($ban_ura[$c][$d] == player2)){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }elseif($count > 1){
-                                echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                                echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                                 $check = false;
                                 break;
                             }
@@ -1711,13 +1710,13 @@ class Limit
                         $ban_ura[$a][$b] = 0;
                         $check = true;
                     }else{
-                        echo 'à⁄ìÆÇ≈Ç´Ç‹ÇπÇÒÅB' . "\n";
+                        echo 'ÁßªÂãï„Åß„Åç„Åæ„Åõ„Çì„ÄÇ' . "\n";
                         $check = false;
                     }
                     break;
                 }
             }catch(Exception $e){
-                echo 'ÉGÉâÅ[';
+                echo '„Ç®„É©„Éº';
             }
     }
     
@@ -1730,7 +1729,7 @@ class Judge
         global $ban, $teban, $ju;
         $a = -1;
         $b = -1;
-        echo 'Ç»ÇËÇ‹Ç∑Ç©ÅHÅ@1ÇÕÇ¢Å@2Ç¢Ç¢Ç¶' . "\n";
+        echo '„Å™„Çä„Åæ„Åô„ÅãÔºü„ÄÄ1„ÅØ„ÅÑ„ÄÄ2„ÅÑ„ÅÑ„Åà' . "\n";
         fscanf(STDIN, '%d %d' , $a,$b);
         if(($a == 1 || $a == 2) && $b == -1){
             if($a == 1){
@@ -1743,7 +1742,7 @@ class Judge
                 $ban[$x2][$y2] = $ban[$x1][$y1];
             }
         }else{
-            echo 'ì¸óÕÇ™ä‘à·Ç¡ÇƒÇ¢Ç‹Ç∑ÅB' . "\n";
+            echo 'ÂÖ•Âäõ„ÅåÈñìÈÅï„Å£„Å¶„ÅÑ„Åæ„Åô„ÄÇ' . "\n";
             $ju -> naruka($x1, $y1, $x2, $y2);
         }
     }
@@ -1766,14 +1765,14 @@ class Judge
                 return true;
             }else{
                 if($teban){
-                    echo 'player1ÇÃèüóò' . "\n";
+                    echo 'player1„ÅÆÂãùÂà©' . "\n";
                 }else{
-                    echo 'player2ÇÃèüóò' . "\n";
+                    echo 'player2„ÅÆÂãùÂà©' . "\n";
                 }
                 return false;
             }
         }catch(Exception $e){
-        echo 'ÉGÉâÅ[';
+        echo '„Ç®„É©„Éº';
         }
     }
     
@@ -1790,123 +1789,123 @@ class Judge
                     $koma = $ban[$i][$j];
                     
                     switch($koma){
-                        case 1:					//ï‡
+                        case 1:					//Ê≠©
                             if($ban[$i - 1][$j] == 14){
-                                echo 'player1Ç™â§éË' . "\n";
+                                echo 'player1„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-	    	            case 3:					//åj
+	    	            case 3:					//Ê°Ç
                             if($ban[$i - 2][$j + 1] == 14){
-                                echo 'player1Ç™â§éË' . "\n";
+                                echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 2][$j - 1] == 14){
-                                echo 'player1Ç™â§éË' . "\n";
+                                echo 'player1„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-            		    case 4:					//ã‚
+            		    case 4:					//ÈäÄ
                             if($ban[$i - 1][$j] == 14){
-                                echo 'player1Ç™â§éË' . "\n";
+                                echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-    	        	    case 5:					//ã‡
+    	        	    case 5:					//Èáë
                             if($ban[$i - 1][$j] == 14){
-                                echo 'player1Ç™â§éË' . "\n";
+                                echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-    	        	    case 6:					//â§
+    	        	    case 6:					//Áéã
                             if($ban[$i - 1][$j] == 14){
-                                echo 'player1Ç™â§éË' . "\n";
+                                echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j + 1] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j - 1] == 14){
-	    	                    echo 'player1Ç™â§éË' . "\n";
+	    	                    echo 'player1„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j] == 14){
-	            	            echo 'player1Ç™â§éË' . "\n";
+	            	            echo 'player1„ÅåÁéãÊâã' . "\n";
                             }
                             break;
 
-            		    case 9:					//Ç”
+            		    case 9:					//„Åµ
                             if($ban[$i + 1][$j] == 6){
-                                echo 'player2Ç™â§éË' . "\n";
+                                echo 'player2„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-    	        	    case 14:					//µ≥
+    	        	    case 14:					//ÔΩµÔΩ≥
                             if($ban[$i + 1][$j] == 6){
-                                echo 'player2Ç™â§éË' . "\n";
+                                echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j - 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j + 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j + 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j - 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j + 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j - 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-            		    case 13:					//∑›
+            		    case 13:					//ÔΩ∑Ôæù
                             if($ban[$i + 1][$j] == 6){
-                                echo 'player2Ç™â§éË' . "\n";
+                                echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j - 1] == 6){
-	            	            echo 'player2Ç™â§éË' . "\n";
+	            	            echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i][$j + 1] == 6){
-	    	                    echo 'player2Ç™â§éË' . "\n";
+	    	                    echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j + 1] == 6){
-	            	            echo 'player2Ç™â§éË' . "\n";
+	            	            echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j - 1] == 6){
-    		                    echo 'player2Ç™â§éË' . "\n";
+    		                    echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-	            	    case 12:					//∑ﬁ›
+	            	    case 12:					//ÔΩ∑ÔæûÔæù
                             if($ban[$i + 1][$j] == 6){
-                                echo 'player2Ç™â§éË' . "\n";
+                                echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j + 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 1][$j - 1] == 6){
-	    	                    echo 'player2Ç™â§éË' . "\n";
+	    	                    echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j + 1] == 6){
-	            	            echo 'player2Ç™â§éË' . "\n";
+	            	            echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i - 1][$j - 1] == 6){
-		                        echo 'player2Ç™â§éË' . "\n";
+		                        echo 'player2„ÅåÁéãÊâã' . "\n";
                             }
                             break;
-    	        	    case 11:					//π≤
+    	        	    case 11:					//ÔΩπÔΩ≤
                             if($ban[$i + 2][$j + 1] == 6){
-                                echo 'player2Ç™â§éË' . "\n";
+                                echo 'player2„ÅåÁéãÊâã' . "\n";
                             }elseif($ban[$i + 2][$j - 1] == 6){
-                                echo 'player2Ç™â§éË' . "\n";
+                                echo 'player2„ÅåÁéãÊâã' . "\n";
                             }
                             break;
                     
@@ -1915,7 +1914,7 @@ class Judge
                             while($x > 0){
                                 if($ban[$x][$j] != 0){
                                     if($ban[$x][$j] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -1924,48 +1923,48 @@ class Judge
                             break;
             
                         case 7:
-                        //è„
+                        //‰∏ä
                             $x = $i - 1;
                             while($x > 0){
                                 if($ban[$x][$j] != 0){
                                     if($ban[$x][$j] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
                                 $x--;
                             }
                         
-                        //â∫
+                        //‰∏ã
                             $x = $i + 1;
                             while($x < 10){
                                 if($ban[$x][$j] != 0){
                                     if($ban[$x][$j] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
                                 $x++;
                             }
                         
-                        //âE
+                        //Âè≥
                             $x = $j + 1;
                             while($x < 10){
                                 if($ban[$i][$x] != 0){
                                     if($ban[$i][$x] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
                                 $x++;
                             }
                         
-                          //ç∂
+                          //Â∑¶
                             $x = $j - 1;
                             while($x > 0){
                                 if($ban[$i][$x] != 0){
                                     if($ban[$i][$x] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -1974,13 +1973,13 @@ class Judge
                             break;
              
                         case 8:
-                       //âEè„
+                       //Âè≥‰∏ä
                             $x = $i - 1;
                             $y = $j + 1;
                             while($x > 0 && $y < 10){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -1988,13 +1987,13 @@ class Judge
                                 $y++;
                             }
                         
-                        //âEâ∫
+                        //Âè≥‰∏ã
                             $x = $i + 1;
                             $y = $j + 1;
                             while($x < 10 && $y < 10){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2002,13 +2001,13 @@ class Judge
                                 $y++;
                             }
                        
-                        //ç∂è„
+                        //Â∑¶‰∏ä
                             $x = $i - 1;
                             $y = $j - 1;
                             while($x > 0 && $y > 0){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2016,13 +2015,13 @@ class Judge
                                 $y--;
                             }
                         
-                       //ç∂â∫
+                       //Â∑¶‰∏ã
                             $x = $i + 1;
                             $y = $j - 1;
                             while($x < 10 && $y > 0){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 14){
-                                        echo 'player1Ç™â§éË' . "\n";
+                                        echo 'player1„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2032,48 +2031,48 @@ class Judge
                             break;
             
                         case 15:
-                    //è„
+                    //‰∏ä
                             $x = $i - 1;
                             while($x > 0){
                                 if($ban[$x][$j] != 0){
                                     if($ban[$x][$j] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
                                 $x--;
                             }
                         
-                        //â∫
+                        //‰∏ã
                             $x = $i + 1;
                             while($x < 10){
                                 if($ban[$x][$j] != 0){
                                     if($ban[$x][$j] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
                                 $x++;
                             }
                         
-                        //âE
+                        //Âè≥
                             $x = $j + 1;
                             while($x < 10){
                                 if($ban[$i][$x] != 0){
                                     if($ban[$i][$x] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
                                 $x++;
                             }
                         
-                          //ç∂
+                          //Â∑¶
                             $x = $j - 1;
                             while($x > 0){
                                 if($ban[$i][$x] != 0){
                                     if($ban[$i][$x] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2082,13 +2081,13 @@ class Judge
                             break;
                 
                         case 16:    
-                    //âEè„
+                    //Âè≥‰∏ä
                             $x = $i - 1;
                             $y = $j + 1;
                             while($x > 0 && $y < 10){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2096,13 +2095,13 @@ class Judge
                                 $y++;
                             }
                         
-                        //âEâ∫
+                        //Âè≥‰∏ã
                             $x = $i + 1;
                             $y = $j + 1;
                             while($x < 10 && $y < 10){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2110,13 +2109,13 @@ class Judge
                                 $y++;
                             }
                         
-                        //ç∂è„
+                        //Â∑¶‰∏ä
                             $x = $i - 1;
                             $y = $j - 1;
                             while($x > 0 && $y > 0){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2124,13 +2123,13 @@ class Judge
                                 $y--;
                             }
                         
-                       //ç∂â∫
+                       //Â∑¶‰∏ã
                             $x = $i + 1;
                             $y = $j - 1;
                             while($x < 10 && $y > 0){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 6){
-                                       echo 'player2Ç™â§éË' . "\n";
+                                       echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2144,7 +2143,7 @@ class Judge
                             while($x < 10){
                                 if($ban[$x][$y] != 0){
                                     if($ban[$x][$y] == 6){
-                                        echo 'player2Ç™â§éË' . "\n";
+                                        echo 'player2„ÅåÁéãÊâã' . "\n";
                                     }
                                     break;
                                 }
@@ -2179,11 +2178,11 @@ try{
             $a = 0;
             $b = -1;
             if($teban){
-                echo 'player1Å@';
+                echo 'player1„ÄÄ';
             }else{
-                echo 'player2Å@';
+                echo 'player2„ÄÄ';
             }
-            echo '1ìÆÇ©Ç∑Å@2íuÇ≠Å@3î’Çï\é¶' . "\n";
+            echo '1Âãï„Åã„Åô„ÄÄ2ÁΩÆ„Åè„ÄÄ3Áõ§„ÇíË°®Á§∫' . "\n";
             fscanf(STDIN, '%d %d' , $a,$b);
             if($b == -1){
                 if($a == 1){
@@ -2195,11 +2194,11 @@ try{
                     $check = false;
                 }else{
                     $check = false;
-                    echo("Ç‡Ç§àÍìxì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅB"."\n");
+                    echo("„ÇÇ„ÅÜ‰∏ÄÂ∫¶ÂÖ•Âäõ„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ"."\n");
                 }
             }else{
                 $check = false;
-                echo("Ç‡Ç§àÍìxì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅI"."\n");
+                echo("„ÇÇ„ÅÜ‰∏ÄÂ∫¶ÂÖ•Âäõ„Åó„Å¶„Åè„Å†„Åï„ÅÑÔºÅ"."\n");
             }
         }while($check == false);
         $pr -> Show($ban);
@@ -2211,6 +2210,6 @@ try{
         }
     }
 }catch(Exception $e){
-    echo 'ÉGÉâÅ[';
+    echo '„Ç®„É©„Éº';
 }
 ?>
